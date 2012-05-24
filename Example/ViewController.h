@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *stringLabel;
 @property (weak, nonatomic) IBOutlet UITextView *statusLabel;
 
-- (IBAction)refreshValue;
+- (IBAction)refreshLabels;
+- (IBAction)forceDownload;
 
 @end

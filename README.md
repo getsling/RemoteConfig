@@ -1,5 +1,5 @@
 # RemoteConfig
-Load a remote JSON / XML config file with locally defined default values.
+Objective-c library for loading a remote JSON / XML config file with locally defined default values.
 
 
 ## Installation
@@ -34,7 +34,7 @@ See the included example app: `Config.m` and `ViewController.m`.
 ## Requirements
 
 ### JSON
-RemoteConfig uses [`NSJSONSerialization`](http://developer.apple.com/library/mac/#documentation/Foundation/Reference/NSJSONSerialization_Class/Reference/Reference.html) for JSON files, if it is available. If your app targets a platform where this class is not available you can include one of the following JSON libraries to your project for RemoteConfig to automatically detect and use.
+RemoteConfig uses [`NSJSONSerialization`](http://developer.apple.com/library/mac/#documentation/Foundation/Reference/NSJSONSerialization_Class/Reference/Reference.html) for JSON files, if it is available. If your app targets a platform where this class is not available (iOS < 5.0) you can include one of the following JSON libraries to your project for RemoteConfig to automatically detect and use.
 
 * [JSONKit](https://github.com/johnezang/JSONKit)
 * [SBJson](https://stig.github.com/json-framework/)
@@ -44,7 +44,7 @@ RemoteConfig uses [`NSJSONSerialization`](http://developer.apple.com/library/mac
 If you're not using JSON based config files, you don't need to include any of them.
 
 ### ARC Support
-RemoteConfig requires ARC support. However, `MCJSONUtilities.m` needs to be compiled with the `-fno-objc-arc` flag. To do this in Xcode, go to your active target and select the "Build Phases" tab. In the "Compiler Flags" column, set `-fno-objc-arc` for `MCJSONUtilities.m`.
+RemoteConfig requires ARC support and should run on iOS 4.0 and higher. However, `MCJSONUtilities.m` needs to be compiled with the `-fno-objc-arc` flag. To do this in Xcode, go to your active target and select the "Build Phases" tab. In the "Compiler Flags" column, set `-fno-objc-arc` for `MCJSONUtilities.m`.
 
 
 ## Issues and questions

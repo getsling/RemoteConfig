@@ -19,7 +19,6 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
 // Private methods
 - (void)loadConfig;
 - (BOOL)needsToDownloadRemoteFile;
-- (void)downloadRemoteFile;
 - (void)applyMapping:(NSDictionary *)parsedData;
 - (void)statusChanged:(MCRemoteConfigStatusEnum)status;
 

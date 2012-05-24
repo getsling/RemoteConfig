@@ -24,6 +24,7 @@ extern NSString *const MCRemoteConfigStatusChangedNotification;
 
 // Public methods
 - (void)mapRemoteKeyPath:(NSString *)keyPath toLocalAttribute:(NSString *)attribute defaultValue:(id)defaultValue;
+- (void)downloadRemoteFile;
 
 // Overriden in JSONRemoteConfig and XMLRemoteConfig
 - (NSDictionary *)parseDownloadedData:(NSData *)data;

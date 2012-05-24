@@ -39,13 +39,13 @@ NSString *const MCRemoteConfigStatusStrings[] = {
     // Release any retained subviews of the main view.
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-}
-
-- (IBAction)refreshValue {
+- (IBAction)refreshLabels {
     self.integerLabel.text = [NSString stringWithFormat:@"%@", [Config config].exampleIntegerValue];
     self.stringLabel.text = [Config config].exampleStringValue;
+}
+
+- (IBAction)forceDownload {
+    [[Config config] downloadRemoteFile];
 }
 
 - (void)statusChanged:(NSNotification *)notification {
