@@ -8,6 +8,8 @@
 
 #import "MCBaseRemoteConfig.h"
 
+static NSString * const kMCRemoteConfigNSUserDefaultsKey = @"nl.mixedCase.RemoteConfig.config";
+
 
 @interface MCBaseRemoteConfig ()
 
@@ -17,7 +19,7 @@
 // Private methods
 - (BOOL)needsToDownloadRemoteFile;
 - (void)downloadRemoteFile;
-- (void)applyMapping:(id)parsedData;
+- (void)applyMapping:(NSDictionary *)parsedData;
 
 @end
 
@@ -39,8 +41,8 @@
 - (id)init {
     self = [super init];
     if (self) {
-        if ([self needsToDownloadRemoteFile]) {
-            [self setupMapping]; // also loads default values
+        [self setupMapping]; // also loads default values
+        if ([self needsToDownloadRemoteFile]) { // if available, loads locally saved values
             [self downloadRemoteFile];
         }
     }
@@ -60,6 +62,16 @@
 #pragma mark - Private methods
 
 - (BOOL)needsToDownloadRemoteFile {
+    // Was the config already saved into NSUserDefaults?
+    NSDictionary *parsedData = [[NSUserDefaults standardUserDefaults] objectForKey:kMCRemoteConfigNSUserDefaultsKey];
+    if (parsedData != nil) {
+        [self applyMapping:parsedData];
+        return NO;
+
+        // TODO: should check how old the saved data is, maybe we have to download the config file again.
+        // Or, use the last modified header or something like that?
+    }
+
     return YES;
 }
 
@@ -71,7 +83,7 @@
     }
 }
 
-- (void)applyMapping:(id)parsedData {
+- (void)applyMapping:(NSDictionary *)parsedData {
     for (NSString *keyPath in self.mapping) {
         NSString *attribute = [self.mapping objectForKey:keyPath];
         [self setValue:[parsedData valueForKeyPath:keyPath] forKey:attribute];
@@ -80,7 +92,7 @@
 
 #pragma mark - Overriden in JSONRemoteConfig and XMLRemoteConfig
 
-- (id)parseDownloadedData:(NSData *)data {
+- (NSDictionary *)parseDownloadedData:(NSData *)data {
     NSAssert(NO, @"JSONRemoteconfig and XMLRemoteConfig subclasses need to overwrite this method");
     return nil;
 }
@@ -90,12 +102,6 @@
 - (NSURL *)remoteFileLocation {
     NSAssert(NO, @"Your own subclass needs to overwrite this method");
     return nil;
-}
-
-- (NSString *)localFileLocation {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    return [documentsDirectory stringByAppendingPathComponent:@"config.plist"];
 }
 
 - (void)setupMapping {
@@ -117,7 +123,14 @@
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    id parsedData = [self parseDownloadedData:self.receivedData];
+    // Parse the NSData into a NSDictionary (responsabiliy of a subclass)
+    NSDictionary *parsedData = [self parseDownloadedData:self.receivedData];
+
+    // Save the NSDictionary to NSUserDefaults
+    [[NSUserDefaults standardUserDefaults] setObject:parsedData forKey:kMCRemoteConfigNSUserDefaultsKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
+    // Apply the mapping as given by [setupMapping]
     [self applyMapping:parsedData];
 }
 

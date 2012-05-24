@@ -14,11 +14,10 @@
 - (void)mapRemoteKeyPath:(NSString *)keyPath toLocalAttribute:(NSString *)attribute defaultValue:(id)defaultValue;
 
 // Overriden in JSONRemoteConfig and XMLRemoteConfig
-- (id)parseDownloadedData:(NSData *)data;
+- (NSDictionary *)parseDownloadedData:(NSData *)data;
 
 // Override in your own class
 - (NSURL *)remoteFileLocation;
-- (NSString *)localFileLocation;
 - (void)setupMapping;
 
 @end

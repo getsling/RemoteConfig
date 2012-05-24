@@ -128,18 +128,26 @@
 		0A6F864F156E3FDA007F2FC6 /* RemoteConfig */ = {
 			isa = PBXGroup;
 			children = (
+				0A6F86EA156E4E85007F2FC6 /* Utilities */,
 				0A6F8650156E3FDA007F2FC6 /* MCBaseRemoteConfig.h */,
 				0A6F8651156E3FDA007F2FC6 /* MCBaseRemoteConfig.m */,
 				0A6F8652156E3FDA007F2FC6 /* MCJSONRemoteConfig.h */,
 				0A6F8653156E3FDA007F2FC6 /* MCJSONRemoteConfig.m */,
-				0A6F8654156E3FDA007F2FC6 /* MCJSONUtilities.h */,
-				0A6F8655156E3FDA007F2FC6 /* MCJSONUtilities.m */,
-				0A6F8656156E3FDA007F2FC6 /* MCXMLReader.h */,
-				0A6F8657156E3FDA007F2FC6 /* MCXMLReader.m */,
 				0A6F8658156E3FDA007F2FC6 /* MCXMLRemoteConfig.h */,
 				0A6F8659156E3FDA007F2FC6 /* MCXMLRemoteConfig.m */,
 			);
 			path = RemoteConfig;
+			sourceTree = "<group>";
+		};
+		0A6F86EA156E4E85007F2FC6 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0A6F8654156E3FDA007F2FC6 /* MCJSONUtilities.h */,
+				0A6F8655156E3FDA007F2FC6 /* MCJSONUtilities.m */,
+				0A6F8656156E3FDA007F2FC6 /* MCXMLReader.h */,
+				0A6F8657156E3FDA007F2FC6 /* MCXMLReader.m */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,6 +333,7 @@
 				0A6F864B156E3F88007F2FC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

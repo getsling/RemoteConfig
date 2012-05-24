@@ -7,28 +7,31 @@
 //
 
 #import "ViewController.h"
-
-@interface ViewController ()
-
-@end
+#import "Config.h"
 
 @implementation ViewController
 
-- (void)viewDidLoad
-{
+@synthesize valueLabel = _valueLabel;
+@synthesize statusLabel = _statusLabel;
+
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    self.valueLabel.text = [NSString stringWithFormat:@"%@", [Config config].exampleValue];
 }
 
-- (void)viewDidUnload
-{
+- (void)viewDidUnload {
+    [self setValueLabel:nil];
+    [self setStatusLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+- (IBAction)refreshValue {
+    self.valueLabel.text = [NSString stringWithFormat:@"%@", [Config config].exampleValue];
 }
 
 @end

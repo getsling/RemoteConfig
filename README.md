@@ -21,7 +21,6 @@ However you get the code, you need to do one extra step:
 Create a subclass of `MCJSONRemoteConfig` or `MCXMLRemoteConfig` and override the following methods:
 
 * `- (NSURL *)remoteFileLocation;` (required)
-* `- (NSString *)localFileLocation;` (optional, default value is config.plist in the Documents directory)
 * `- (void)setupMapping;` (required)
 
 It's recommended (but not required) to add synthesized properties for your config values.

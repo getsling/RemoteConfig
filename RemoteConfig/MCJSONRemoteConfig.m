@@ -11,7 +11,7 @@
 
 @implementation MCJSONRemoteConfig
 
-- (id)parseDownloadedData:(NSData *)data {
+- (NSDictionary *)parseDownloadedData:(NSData *)data {
     NSError *error = nil;
     return JSONDecode(data, &error);
 }

@@ -11,7 +11,7 @@
 
 @implementation MCXMLRemoteConfig
 
-- (id)parseDownloadedData:(NSData *)data {
+- (NSDictionary *)parseDownloadedData:(NSData *)data {
     NSError *error = nil;
     return [MCXMLReader dictionaryForXMLData:data error:&error];
 }

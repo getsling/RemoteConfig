@@ -10,8 +10,7 @@
 
 @implementation Config
 
-@synthesize rateAppAfter = _rateAppAfter;
-@synthesize rateAppUrl = _rateAppUrl;
+@synthesize exampleValue = _exampleValue;
 
 + (Config *)config {
     static dispatch_once_t pred;
@@ -25,8 +24,7 @@
 }
 
 - (void)setupMapping {
-    [self mapRemoteKeyPath:@"rate_app_after" toLocalAttribute:@"rateAppAfter" defaultValue:[NSNumber numberWithInteger:99]];
-    [self mapRemoteKeyPath:@"rate_app_url" toLocalAttribute:@"rateAppUrl" defaultValue:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=323701765"];
+    [self mapRemoteKeyPath:@"remote_example_value" toLocalAttribute:@"exampleValue" defaultValue:[NSNumber numberWithInteger:1]];
 }
 
 @end

@@ -10,8 +10,8 @@
 
 @interface Config : MCJSONRemoteConfig
 
+@property (strong, nonatomic) NSNumber *exampleValue;
+
 + (Config *)config;
-@property (strong, nonatomic) NSNumber *rateAppAfter;
-@property (strong, nonatomic) NSString *rateAppUrl;
 
 @end
