@@ -3,8 +3,18 @@ Load a remote JSON / XML config file with locally defined default values.
 
 
 ## Installation
-1. Drag the RemoteConfig folder to your project. Check "copy items into destination group's folder" and the target.
-2. In your project settings go to the build fases. In the "compile sources" section add the `-fno-objc-arc` flag to `MCJSONUtilities.m`.
+1. Get the code: `git clone git://github.com/kevinrenskers/RemoteConfig.git`
+2. Drag the `RemoteConfig` folder to your project. Check both "copy items into destination group's folder" and your target.
+
+Alternatively you can add this code as a Git submodule:
+
+1. `cd [your project root]`
+2. `git submodule add git://github.com/kevinrenskers/RemoteConfig.git`
+3. Drag the `RemoteConfig` folder to your project. Uncheck the "copy items into destination group's folder" box, do check your target.
+
+However you get the code, you need to do one extra step:
+
+1. In your project settings go to the build fases. In the "compile sources" section add the `-fno-objc-arc` flag to `MCJSONUtilities.m`.
 
 
 ## How to get started
@@ -18,58 +28,7 @@ It's recommended (but not required) to add synthesized properties for your confi
 
 
 ### Example
-
-```objective-c
-// Config.h
-#import "MCJSONRemoteConfig.h"
-
-@interface Config : JSONRemoteConfig
-
-@property (strong, nonatomic) NSNumber *rateAppAfter;
-@property (strong, nonatomic) NSString *rateAppUrl;
-
-+ (Config *)config;
-
-@end
-```
-
-```objective-c
-// Config.m
-#import "Config.h"
-
-@implementation Config
-
-@synthesize rateAppAfter = _rateAppAfter;
-@synthesize rateAppUrl = _rateAppUrl;
-
-+ (Config *)config {
-    static dispatch_once_t pred;
-    static Config *sharedInstance = nil;
-    dispatch_once(&pred, ^{ sharedInstance = [[self alloc] init]; });
-    return sharedInstance;
-}
-
-- (NSURL *)remoteFileLocation {
-    return [NSURL URLWithString:@"http://dl.dropbox.com/u/2310965/remoteconfigexample.json"];
-}
-
-- (void)setupMapping {
-    [self mapRemoteKeyPath:@"rate_app_after" toLocalAttribute:@"rateAppAfter" defaultValue:[NSNumber numberWithInteger:5]];
-    [self mapRemoteKeyPath:@"rate_app_url" toLocalAttribute:@"rateAppUrl" defaultValue:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=323701765"];
-}
-
-@end
-```
-
-### Usage
-Use the singleton method to access your config values:
-
-```objective-c
-[Config config].rateAppAfter;
-[Config config].rateAppUrl;
-```
-
-If the remote config file has not yet been downloaded and parsed, default values will be used for these properties.
+See the included example app: `Config.m` and `ViewController.m`.
 
 
 ## Requirements
