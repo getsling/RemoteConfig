@@ -8,7 +8,8 @@
 
 #import "MCBaseRemoteConfig.h"
 
-static NSString *const kMCRemoteConfigNSUserDefaultsKey = @"nl.mixedCase.RemoteConfig.config";
+static NSString *const MCRemoteConfigNSUserDefaultsKeyConfig = @"nl.mixedCase.RemoteConfig.config";
+static NSString *const MCRemoteConfigNSUserDefaultsKeyLastDownload = @"nl.mixedCase.RemoteConfig.lastDownload";
 NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteConfig.statusChangedNotification";
 
 @interface MCBaseRemoteConfig ()
@@ -66,7 +67,7 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
 
 - (void)loadConfig {
     // Was the config already saved into NSUserDefaults?
-    NSDictionary *parsedData = [[NSUserDefaults standardUserDefaults] objectForKey:kMCRemoteConfigNSUserDefaultsKey];
+    NSDictionary *parsedData = [[NSUserDefaults standardUserDefaults] objectForKey:MCRemoteConfigNSUserDefaultsKeyConfig];
     if (parsedData != nil) {
         [self applyMapping:parsedData];
         [self statusChanged:kMCRemoteConfigStatusUsingLocalConfig];
@@ -74,11 +75,20 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
 }
 
 - (BOOL)needsToDownloadRemoteFile {
-    // TODO: should check how old the saved data is, maybe we have to download the config file again.
-    // Or, use the last modified header or something like that?
-    NSDictionary *parsedData = [[NSUserDefaults standardUserDefaults] objectForKey:kMCRemoteConfigNSUserDefaultsKey];
-    if (parsedData == nil) {
+    NSDate *lastdownload = [[NSUserDefaults standardUserDefaults] objectForKey:MCRemoteConfigNSUserDefaultsKeyLastDownload];
+    if (lastdownload == nil) {
+        // If the remote file has never been download, then we need to download it for sure
         return YES;
+    }
+    
+    NSTimeInterval rate = [self redownloadRate];
+    if (rate) {
+        NSDate *rateTimeAgo = [NSDate dateWithTimeIntervalSinceNow:-(rate)];
+        NSComparisonResult result = [lastdownload compare:rateTimeAgo];
+        if (result == NSOrderedAscending) {
+            // (now-rate) is greater then last download time, so we need to redownload
+            return YES;
+        }
     }
 
     return NO;
@@ -86,7 +96,7 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
 
 - (void)downloadRemoteFile {
     [self statusChanged:kMCRemoteConfigStatusDownloading];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[self remoteFileLocation] cachePolicy:NSURLRequestReloadRevalidatingCacheData timeoutInterval:10];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[self remoteFileLocation] cachePolicy:NSURLRequestReloadRevalidatingCacheData timeoutInterval:50];
     NSURLConnection *connection = [NSURLConnection connectionWithRequest:request delegate:self];
     if (connection) {
         self.receivedData = [NSMutableData data];
@@ -123,6 +133,12 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
     NSAssert(NO, @"Your own subclass needs to overwrite this method");
 }
 
+- (NSTimeInterval)redownloadRate {
+    // By default we redownload the remote config file once every 24 hours
+    // Return 0 if you always want to download the file
+    return 60*60*24;
+}
+
 #pragma mark - NSURLConnectionDelegate
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
@@ -139,11 +155,14 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    // Save the date of the last download
+    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:MCRemoteConfigNSUserDefaultsKeyLastDownload];
+
     // Parse the NSData into a NSDictionary (responsabiliy of a subclass)
     NSDictionary *parsedData = [self parseDownloadedData:self.receivedData];
 
     // Save the NSDictionary to NSUserDefaults
-    [[NSUserDefaults standardUserDefaults] setObject:parsedData forKey:kMCRemoteConfigNSUserDefaultsKey];
+    [[NSUserDefaults standardUserDefaults] setObject:parsedData forKey:MCRemoteConfigNSUserDefaultsKeyConfig];
     [[NSUserDefaults standardUserDefaults] synchronize];
 
     // Apply the mapping as given by [setupMapping]

@@ -32,5 +32,6 @@ extern NSString *const MCRemoteConfigStatusChangedNotification;
 // Override in your own class
 - (NSURL *)remoteFileLocation;
 - (void)setupMapping;
+- (NSTimeInterval)redownloadRate;
 
 @end

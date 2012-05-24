@@ -23,8 +23,9 @@ Create a subclass of `MCJSONRemoteConfig` or `MCXMLRemoteConfig` and override th
 * `- (NSURL *)remoteFileLocation;` (required)
 * `- (void)setupMapping;` (required)
 * `- (void)statusChanged:(MCRemoteConfigStatus)status;` (optional)
+* `- (NSTimeInterval)redownloadRate;` (optional, by default the remote file is redownloaded every 24 hours)
 
-It's recommended (but not required) to add synthesized properties for your config values.
+It's recommended to add synthesized properties for your config values. However, key value coding also works.
 
 
 ### Example
