@@ -9,19 +9,32 @@
 #import "ViewController.h"
 #import "Config.h"
 
+NSString *const MCRemoteConfigStatusStrings[] = {
+    @"Using defaults\n", 
+    @"Using locally saved config\n", 
+    @"Downloading\n", 
+    @"Download failed\n", 
+    @"Using remote config\n"
+};
+
 @implementation ViewController
 
-@synthesize valueLabel = _valueLabel;
+@synthesize integerLabel = _integerLabel;
+@synthesize stringLabel = _stringLabel;
 @synthesize statusLabel = _statusLabel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.valueLabel.text = [NSString stringWithFormat:@"%@", [Config config].exampleValue];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusChanged:) name:MCRemoteConfigStatusChangedNotification object:nil];
+    self.integerLabel.text = [NSString stringWithFormat:@"%@", [Config config].exampleIntegerValue];
+    self.stringLabel.text = [Config config].exampleStringValue;
 }
 
 - (void)viewDidUnload {
-    [self setValueLabel:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:MCRemoteConfigStatusChangedNotification object:nil];
+    [self setIntegerLabel:nil];
     [self setStatusLabel:nil];
+    [self setStringLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -31,7 +44,13 @@
 }
 
 - (IBAction)refreshValue {
-    self.valueLabel.text = [NSString stringWithFormat:@"%@", [Config config].exampleValue];
+    self.integerLabel.text = [NSString stringWithFormat:@"%@", [Config config].exampleIntegerValue];
+    self.stringLabel.text = [Config config].exampleStringValue;
+}
+
+- (void)statusChanged:(NSNotification *)notification {
+    Config *config = notification.object;
+    self.statusLabel.text = [self.statusLabel.text stringByAppendingString:MCRemoteConfigStatusStrings[config.MCRemoteConfigStatus]];
 }
 
 @end

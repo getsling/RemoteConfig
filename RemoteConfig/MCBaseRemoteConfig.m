@@ -8,8 +8,8 @@
 
 #import "MCBaseRemoteConfig.h"
 
-static NSString * const kMCRemoteConfigNSUserDefaultsKey = @"nl.mixedCase.RemoteConfig.config";
-
+static NSString *const kMCRemoteConfigNSUserDefaultsKey = @"nl.mixedCase.RemoteConfig.config";
+NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteConfig.statusChangedNotification";
 
 @interface MCBaseRemoteConfig ()
 
@@ -17,15 +17,18 @@ static NSString * const kMCRemoteConfigNSUserDefaultsKey = @"nl.mixedCase.Remote
 @property (strong, nonatomic) NSMutableDictionary *mapping;
 
 // Private methods
+- (void)loadConfig;
 - (BOOL)needsToDownloadRemoteFile;
 - (void)downloadRemoteFile;
 - (void)applyMapping:(NSDictionary *)parsedData;
+- (void)statusChanged:(MCRemoteConfigStatusEnum)status;
 
 @end
 
 
 @implementation MCBaseRemoteConfig
 
+@synthesize MCRemoteConfigStatus = _MCRemoteConfigStatus;
 @synthesize receivedData = _receivedData;
 @synthesize mapping = _mapping;
 
@@ -42,7 +45,8 @@ static NSString * const kMCRemoteConfigNSUserDefaultsKey = @"nl.mixedCase.Remote
     self = [super init];
     if (self) {
         [self setupMapping]; // also loads default values
-        if ([self needsToDownloadRemoteFile]) { // if available, loads locally saved values
+        [self loadConfig]; // loads locally saved values
+        if ([self needsToDownloadRemoteFile]) {
             [self downloadRemoteFile];
         }
     }
@@ -61,21 +65,28 @@ static NSString * const kMCRemoteConfigNSUserDefaultsKey = @"nl.mixedCase.Remote
 
 #pragma mark - Private methods
 
-- (BOOL)needsToDownloadRemoteFile {
+- (void)loadConfig {
     // Was the config already saved into NSUserDefaults?
     NSDictionary *parsedData = [[NSUserDefaults standardUserDefaults] objectForKey:kMCRemoteConfigNSUserDefaultsKey];
     if (parsedData != nil) {
         [self applyMapping:parsedData];
-        return NO;
+        [self statusChanged:kMCRemoteConfigStatusUsingLocalConfig];
+    }
+}
 
-        // TODO: should check how old the saved data is, maybe we have to download the config file again.
-        // Or, use the last modified header or something like that?
+- (BOOL)needsToDownloadRemoteFile {
+    // TODO: should check how old the saved data is, maybe we have to download the config file again.
+    // Or, use the last modified header or something like that?
+    NSDictionary *parsedData = [[NSUserDefaults standardUserDefaults] objectForKey:kMCRemoteConfigNSUserDefaultsKey];
+    if (parsedData == nil) {
+        return YES;
     }
 
-    return YES;
+    return NO;
 }
 
 - (void)downloadRemoteFile {
+    [self statusChanged:kMCRemoteConfigStatusDownloading];
     NSURLRequest *request = [NSURLRequest requestWithURL:[self remoteFileLocation] cachePolicy:NSURLRequestReloadRevalidatingCacheData timeoutInterval:10];
     NSURLConnection *connection = [NSURLConnection connectionWithRequest:request delegate:self];
     if (connection) {
@@ -88,6 +99,11 @@ static NSString * const kMCRemoteConfigNSUserDefaultsKey = @"nl.mixedCase.Remote
         NSString *attribute = [self.mapping objectForKey:keyPath];
         [self setValue:[parsedData valueForKeyPath:keyPath] forKey:attribute];
     }
+}
+
+- (void)statusChanged:(MCRemoteConfigStatusEnum)status {
+    self.MCRemoteConfigStatus = status;
+    [[NSNotificationCenter defaultCenter] postNotificationName:MCRemoteConfigStatusChangedNotification object:self];
 }
 
 #pragma mark - Overriden in JSONRemoteConfig and XMLRemoteConfig
@@ -120,6 +136,7 @@ static NSString * const kMCRemoteConfigNSUserDefaultsKey = @"nl.mixedCase.Remote
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     NSLog(@"Connection failed! Error - %@ %@", [error localizedDescription], [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
+    [self statusChanged:kMCRemoteConfigStatusDownloadFailed];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
@@ -132,6 +149,7 @@ static NSString * const kMCRemoteConfigNSUserDefaultsKey = @"nl.mixedCase.Remote
 
     // Apply the mapping as given by [setupMapping]
     [self applyMapping:parsedData];
+    [self statusChanged:kMCRemoteConfigStatusUsingRemoteConfig];
 }
 
 @end

@@ -4,13 +4,13 @@ Load a remote JSON / XML config file with locally defined default values.
 
 ## Installation
 1. Get the code: `git clone git://github.com/kevinrenskers/RemoteConfig.git`
-2. Drag the `RemoteConfig` folder to your project. Check both "copy items into destination group's folder" and your target.
+2. Drag the `RemoteConfig` subfolder to your project. Check both "copy items into destination group's folder" and your target.
 
 Alternatively you can add this code as a Git submodule:
 
 1. `cd [your project root]`
 2. `git submodule add git://github.com/kevinrenskers/RemoteConfig.git`
-3. Drag the `RemoteConfig` folder to your project. Uncheck the "copy items into destination group's folder" box, do check your target.
+3. Drag the `RemoteConfig` subfolder to your project. Uncheck the "copy items into destination group's folder" box, do check your target.
 
 However you get the code, you need to do one extra step:
 
@@ -22,6 +22,7 @@ Create a subclass of `MCJSONRemoteConfig` or `MCXMLRemoteConfig` and override th
 
 * `- (NSURL *)remoteFileLocation;` (required)
 * `- (void)setupMapping;` (required)
+* `- (void)statusChanged:(MCRemoteConfigStatus)status;` (optional)
 
 It's recommended (but not required) to add synthesized properties for your config values.
 

@@ -8,7 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    kMCRemoteConfigStatusUsingDefaults,
+    kMCRemoteConfigStatusUsingLocalConfig,
+    kMCRemoteConfigStatusDownloading,
+    kMCRemoteConfigStatusDownloadFailed,
+    kMCRemoteConfigStatusUsingRemoteConfig
+} MCRemoteConfigStatusEnum;
+
+extern NSString *const MCRemoteConfigStatusChangedNotification;
+
 @interface MCBaseRemoteConfig : NSObject <NSURLConnectionDelegate>
+
+@property (nonatomic) MCRemoteConfigStatusEnum MCRemoteConfigStatus;
 
 // Public methods
 - (void)mapRemoteKeyPath:(NSString *)keyPath toLocalAttribute:(NSString *)attribute defaultValue:(id)defaultValue;

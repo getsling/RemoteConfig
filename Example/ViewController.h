@@ -10,8 +10,9 @@
 
 @interface ViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *valueLabel;
-@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+@property (weak, nonatomic) IBOutlet UILabel *integerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *stringLabel;
+@property (weak, nonatomic) IBOutlet UITextView *statusLabel;
 
 - (IBAction)refreshValue;
 

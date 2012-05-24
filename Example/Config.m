@@ -10,7 +10,8 @@
 
 @implementation Config
 
-@synthesize exampleValue = _exampleValue;
+@synthesize exampleIntegerValue = _exampleIntegerValue;
+@synthesize exampleStringValue = _exampleStringValue;
 
 + (Config *)config {
     static dispatch_once_t pred;
@@ -24,7 +25,8 @@
 }
 
 - (void)setupMapping {
-    [self mapRemoteKeyPath:@"remote_example_value" toLocalAttribute:@"exampleValue" defaultValue:[NSNumber numberWithInteger:1]];
+    [self mapRemoteKeyPath:@"remote_integer_value" toLocalAttribute:@"exampleIntegerValue" defaultValue:[NSNumber numberWithInteger:1]];
+    [self mapRemoteKeyPath:@"remote_string_value" toLocalAttribute:@"exampleStringValue" defaultValue:@"Default local value"];
 }
 
 @end
