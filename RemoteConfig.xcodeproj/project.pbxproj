@@ -15,6 +15,12 @@
 		0A6F8640156E3F88007F2FC6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F863F156E3F88007F2FC6 /* AppDelegate.m */; };
 		0A6F8643156E3F88007F2FC6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A6F8641156E3F88007F2FC6 /* MainStoryboard.storyboard */; };
 		0A6F8646156E3F88007F2FC6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F8645156E3F88007F2FC6 /* ViewController.m */; };
+		0A6F864E156E3FC1007F2FC6 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F864D156E3FC1007F2FC6 /* Config.m */; };
+		0A6F865A156E3FDA007F2FC6 /* MCBaseRemoteConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F8651156E3FDA007F2FC6 /* MCBaseRemoteConfig.m */; };
+		0A6F865B156E3FDA007F2FC6 /* MCJSONRemoteConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F8653156E3FDA007F2FC6 /* MCJSONRemoteConfig.m */; };
+		0A6F865C156E3FDA007F2FC6 /* MCJSONUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F8655156E3FDA007F2FC6 /* MCJSONUtilities.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0A6F865D156E3FDA007F2FC6 /* MCXMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F8657156E3FDA007F2FC6 /* MCXMLReader.m */; };
+		0A6F865E156E3FDA007F2FC6 /* MCXMLRemoteConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F8659156E3FDA007F2FC6 /* MCXMLRemoteConfig.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,15 +28,30 @@
 		0A6F862F156E3F88007F2FC6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0A6F8631156E3F88007F2FC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0A6F8633156E3F88007F2FC6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		0A6F8637156E3F88007F2FC6 /* RemoteConfig-Info.plist */ = {isa = PBXFileReference; path = "RemoteConfig-Info.plist"; sourceTree = "<group>"; };
+		0A6F8637156E3F88007F2FC6 /* RemoteConfig-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RemoteConfig-Info.plist"; sourceTree = "<group>"; };
 		0A6F8639156E3F88007F2FC6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0A6F863B156E3F88007F2FC6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		0A6F863D156E3F88007F2FC6 /* RemoteConfig-Prefix.pch */ = {isa = PBXFileReference; path = "RemoteConfig-Prefix.pch"; sourceTree = "<group>"; };
-		0A6F863E156E3F88007F2FC6 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		0A6F863D156E3F88007F2FC6 /* RemoteConfig-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RemoteConfig-Prefix.pch"; sourceTree = "<group>"; };
+		0A6F863E156E3F88007F2FC6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0A6F863F156E3F88007F2FC6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		0A6F8642156E3F88007F2FC6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		0A6F8644156E3F88007F2FC6 /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		0A6F8644156E3F88007F2FC6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		0A6F8645156E3F88007F2FC6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		0A6F864C156E3FC1007F2FC6 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		0A6F864D156E3FC1007F2FC6 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
+		0A6F8650156E3FDA007F2FC6 /* MCBaseRemoteConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCBaseRemoteConfig.h; sourceTree = "<group>"; };
+		0A6F8651156E3FDA007F2FC6 /* MCBaseRemoteConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCBaseRemoteConfig.m; sourceTree = "<group>"; };
+		0A6F8652156E3FDA007F2FC6 /* MCJSONRemoteConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCJSONRemoteConfig.h; sourceTree = "<group>"; };
+		0A6F8653156E3FDA007F2FC6 /* MCJSONRemoteConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCJSONRemoteConfig.m; sourceTree = "<group>"; };
+		0A6F8654156E3FDA007F2FC6 /* MCJSONUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCJSONUtilities.h; sourceTree = "<group>"; };
+		0A6F8655156E3FDA007F2FC6 /* MCJSONUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCJSONUtilities.m; sourceTree = "<group>"; };
+		0A6F8656156E3FDA007F2FC6 /* MCXMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCXMLReader.h; sourceTree = "<group>"; };
+		0A6F8657156E3FDA007F2FC6 /* MCXMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCXMLReader.m; sourceTree = "<group>"; };
+		0A6F8658156E3FDA007F2FC6 /* MCXMLRemoteConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCXMLRemoteConfig.h; sourceTree = "<group>"; };
+		0A6F8659156E3FDA007F2FC6 /* MCXMLRemoteConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCXMLRemoteConfig.m; sourceTree = "<group>"; };
+		0A6F865F156E40FC007F2FC6 /* AUTHORS */ = {isa = PBXFileReference; lastKnownFileType = text; path = AUTHORS; sourceTree = "<group>"; };
+		0A6F8660156E40FC007F2FC6 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		0A6F8661156E40FC007F2FC6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,9 +71,13 @@
 		0A6F8620156E3F88007F2FC6 = {
 			isa = PBXGroup;
 			children = (
-				0A6F8635156E3F88007F2FC6 /* RemoteConfig */,
+				0A6F864F156E3FDA007F2FC6 /* RemoteConfig */,
+				0A6F8635156E3F88007F2FC6 /* Example */,
 				0A6F862E156E3F88007F2FC6 /* Frameworks */,
 				0A6F862C156E3F88007F2FC6 /* Products */,
+				0A6F865F156E40FC007F2FC6 /* AUTHORS */,
+				0A6F8660156E40FC007F2FC6 /* LICENSE */,
+				0A6F8661156E40FC007F2FC6 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,7 +99,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		0A6F8635156E3F88007F2FC6 /* RemoteConfig */ = {
+		0A6F8635156E3F88007F2FC6 /* Example */ = {
 			isa = PBXGroup;
 			children = (
 				0A6F863E156E3F88007F2FC6 /* AppDelegate.h */,
@@ -82,9 +107,11 @@
 				0A6F8641156E3F88007F2FC6 /* MainStoryboard.storyboard */,
 				0A6F8644156E3F88007F2FC6 /* ViewController.h */,
 				0A6F8645156E3F88007F2FC6 /* ViewController.m */,
+				0A6F864C156E3FC1007F2FC6 /* Config.h */,
+				0A6F864D156E3FC1007F2FC6 /* Config.m */,
 				0A6F8636156E3F88007F2FC6 /* Supporting Files */,
 			);
-			path = RemoteConfig;
+			path = Example;
 			sourceTree = "<group>";
 		};
 		0A6F8636156E3F88007F2FC6 /* Supporting Files */ = {
@@ -96,6 +123,23 @@
 				0A6F863D156E3F88007F2FC6 /* RemoteConfig-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0A6F864F156E3FDA007F2FC6 /* RemoteConfig */ = {
+			isa = PBXGroup;
+			children = (
+				0A6F8650156E3FDA007F2FC6 /* MCBaseRemoteConfig.h */,
+				0A6F8651156E3FDA007F2FC6 /* MCBaseRemoteConfig.m */,
+				0A6F8652156E3FDA007F2FC6 /* MCJSONRemoteConfig.h */,
+				0A6F8653156E3FDA007F2FC6 /* MCJSONRemoteConfig.m */,
+				0A6F8654156E3FDA007F2FC6 /* MCJSONUtilities.h */,
+				0A6F8655156E3FDA007F2FC6 /* MCJSONUtilities.m */,
+				0A6F8656156E3FDA007F2FC6 /* MCXMLReader.h */,
+				0A6F8657156E3FDA007F2FC6 /* MCXMLReader.m */,
+				0A6F8658156E3FDA007F2FC6 /* MCXMLRemoteConfig.h */,
+				0A6F8659156E3FDA007F2FC6 /* MCXMLRemoteConfig.m */,
+			);
+			path = RemoteConfig;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +208,12 @@
 				0A6F863C156E3F88007F2FC6 /* main.m in Sources */,
 				0A6F8640156E3F88007F2FC6 /* AppDelegate.m in Sources */,
 				0A6F8646156E3F88007F2FC6 /* ViewController.m in Sources */,
+				0A6F864E156E3FC1007F2FC6 /* Config.m in Sources */,
+				0A6F865A156E3FDA007F2FC6 /* MCBaseRemoteConfig.m in Sources */,
+				0A6F865B156E3FDA007F2FC6 /* MCJSONRemoteConfig.m in Sources */,
+				0A6F865C156E3FDA007F2FC6 /* MCJSONUtilities.m in Sources */,
+				0A6F865D156E3FDA007F2FC6 /* MCXMLReader.m in Sources */,
+				0A6F865E156E3FDA007F2FC6 /* MCXMLRemoteConfig.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,8 +288,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "RemoteConfig/RemoteConfig-Prefix.pch";
-				INFOPLIST_FILE = "RemoteConfig/RemoteConfig-Info.plist";
+				GCC_PREFIX_HEADER = "Example/RemoteConfig-Prefix.pch";
+				INFOPLIST_FILE = "Example/RemoteConfig-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -249,8 +299,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "RemoteConfig/RemoteConfig-Prefix.pch";
-				INFOPLIST_FILE = "RemoteConfig/RemoteConfig-Info.plist";
+				GCC_PREFIX_HEADER = "Example/RemoteConfig-Prefix.pch";
+				INFOPLIST_FILE = "Example/RemoteConfig-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
