@@ -3,13 +3,13 @@ Objective-c library for loading a remote JSON / XML config file with locally def
 
 
 ## Installation
-1. Get the code: `git clone git://github.com/kevinrenskers/RemoteConfig.git`
+1. Get the code: `git clone git://github.com/gangverk/RemoteConfig.git`
 2. Drag the `RemoteConfig` subfolder to your project. Check both "copy items into destination group's folder" and your target.
 
 Alternatively you can add this code as a Git submodule:
 
 1. `cd [your project root]`
-2. `git submodule add git://github.com/kevinrenskers/RemoteConfig.git`
+2. `git submodule add git://github.com/gangverk/RemoteConfig.git`
 3. Drag the `RemoteConfig` subfolder to your project. Uncheck the "copy items into destination group's folder" box, do check your target.
 
 However you get the code, you need to do one extra step:
@@ -51,14 +51,14 @@ RemoteConfig requires ARC support and should run on iOS 4.0 and higher. However,
 ## Issues and questions
 Have a bug? Please create an issue on GitHub!
 
-https://github.com/kevinrenskers/RemoteConfig/issues
+https://github.com/gangverk/RemoteConfig/issues
 
 
 ## Contributing
 RemoteConfig is an open source project and your contribution is very much appreciated.
 
-1. Check for [open issues](https://github.com/kevinrenskers/RemoteConfig/issues) or [open a fresh issue](https://github.com/kevinrenskers/RemoteConfig/issues/new) to start a discussion around a feature idea or a bug.
-2. Fork the [repository on Github](https://github.com/kevinrenskers/RemoteConfig) and make your changes on the **develop** branch (or branch off of it).
+1. Check for [open issues](https://github.com/gangverk/RemoteConfig/issues) or [open a fresh issue](https://github.com/gangverk/RemoteConfig/issues/new) to start a discussion around a feature idea or a bug.
+2. Fork the [repository on Github](https://github.com/gangverk/RemoteConfig) and make your changes on the **develop** branch (or branch off of it).
 3. Make sure to add yourself to AUTHORS and send a pull request.
 
 
