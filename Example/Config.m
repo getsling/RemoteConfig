@@ -21,7 +21,7 @@
 }
 
 - (NSURL *)remoteFileLocation {
-    return [NSURL URLWithString:@"http://dl.dropbox.com/u/2310965/remoteconfigexample.json"];
+    return [NSURL URLWithString:@"https://raw.github.com/gangverk/RemoteConfig/master/Example/example.json"];
 }
 
 - (void)setupMapping {
