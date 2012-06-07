@@ -29,7 +29,7 @@ It's recommended to add synthesized properties for your config values. However, 
 
 
 ### Example
-See the included example app: `Config.m` and `ViewController.m`.
+See the included example app: [`Config.m`](https://github.com/gangverk/RemoteConfig/blob/master/Example/Config.m) and [`ViewController.m`](https://github.com/gangverk/RemoteConfig/blob/master/Example/ViewController.m).
 
 
 ## Requirements
