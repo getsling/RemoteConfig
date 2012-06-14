@@ -22,15 +22,15 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="9WQ-nL-vAg">
-                                <rect key="frame" x="89" y="20" width="211" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="9WQ-nL-vAg">
+                                <rect key="frame" x="87" y="20" width="213" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kFx-cb-JLp">
-                                <rect key="frame" x="20" y="155" width="280" height="37"/>
+                                <rect key="frame" x="20" y="186" width="280" height="37"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Refresh labels">
@@ -45,24 +45,24 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Status:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="ihf-aa-H9j">
-                                <rect key="frame" x="20" y="78" width="54" height="21"/>
+                                <rect key="frame" x="20" y="106" width="54" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="3U6-Zm-wIo">
-                                <rect key="frame" x="20" y="245" width="280" height="195"/>
+                                <rect key="frame" x="20" y="265" width="280" height="195"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <mutableString key="text">The integer config value should be 1 when the app starts for the first time: this is the locally defined default value and the remote file has not yet been loaded.
+                                <string key="text">The integer config value should be 1 when the app starts for the first time: this is the locally defined default value and the remote file has not yet been loaded.
 
-Once the remote config value has been loaded and parsed, the value should be 2. Hit the refresh button to refresh the label. On every app start from here on, the value is 2.</mutableString>
+Once the remote config value has been loaded and parsed, the value should be 2. Hit the refresh button to refresh the label. On every app start from here on, the value is 2.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="Dqh-xP-crl">
-                                <rect key="frame" x="80" y="71" width="240" height="76"/>
+                                <rect key="frame" x="80" y="99" width="240" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -75,15 +75,29 @@ Once the remote config value has been loaded and parsed, the value should be 2. 
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="qMr-RL-4oJ">
-                                <rect key="frame" x="89" y="49" width="211" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="qMr-RL-4oJ">
+                                <rect key="frame" x="87" y="49" width="213" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Nil:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="5lC-ry-SXE">
+                                <rect key="frame" x="20" y="78" width="102" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="Zl4-hf-I5r">
+                                <rect key="frame" x="87" y="78" width="223" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Gmh-C3-7We">
-                                <rect key="frame" x="20" y="200" width="280" height="37"/>
+                                <rect key="frame" x="20" y="231" width="280" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Force download">
@@ -102,6 +116,7 @@ Once the remote config value has been loaded and parsed, the value should be 2. 
                     </view>
                     <connections>
                         <outlet property="integerLabel" destination="9WQ-nL-vAg" id="faz-rr-a6j"/>
+                        <outlet property="nonExistingLabel" destination="Zl4-hf-I5r" id="ds8-oZ-18y"/>
                         <outlet property="statusLabel" destination="Dqh-xP-crl" id="EEK-La-uDs"/>
                         <outlet property="stringLabel" destination="qMr-RL-4oJ" id="NVw-eZ-lSa"/>
                     </connections>
@@ -117,6 +132,7 @@ Once the remote config value has been loaded and parsed, the value should be 2. 
                 <relationship kind="action" name="forceDownload"/>
                 <relationship kind="action" name="refreshLabels"/>
                 <relationship kind="outlet" name="integerLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nonExistingLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="statusLabel" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="stringLabel" candidateClass="UILabel"/>
             </relationships>

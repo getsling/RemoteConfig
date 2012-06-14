@@ -22,12 +22,14 @@ NSString *const MCRemoteConfigStatusStrings[] = {
 @synthesize integerLabel = _integerLabel;
 @synthesize stringLabel = _stringLabel;
 @synthesize statusLabel = _statusLabel;
+@synthesize nonExistingLabel = _nonExistingLabel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusChanged:) name:MCRemoteConfigStatusChangedNotification object:nil];
     self.integerLabel.text = [NSString stringWithFormat:@"%@", [Config config].exampleIntegerValue];
     self.stringLabel.text = [Config config].exampleStringValue;
+    self.nonExistingLabel.text = [Config config].nonExistingStringValue;
 }
 
 - (void)viewDidUnload {
@@ -35,6 +37,7 @@ NSString *const MCRemoteConfigStatusStrings[] = {
     [self setIntegerLabel:nil];
     [self setStatusLabel:nil];
     [self setStringLabel:nil];
+    [self setNonExistingLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -42,6 +45,7 @@ NSString *const MCRemoteConfigStatusStrings[] = {
 - (IBAction)refreshLabels {
     self.integerLabel.text = [NSString stringWithFormat:@"%@", [Config config].exampleIntegerValue];
     self.stringLabel.text = [Config config].exampleStringValue;
+    self.nonExistingLabel.text = [Config config].nonExistingStringValue;
 }
 
 - (IBAction)forceDownload {

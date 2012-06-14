@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *integerLabel;
 @property (weak, nonatomic) IBOutlet UILabel *stringLabel;
 @property (weak, nonatomic) IBOutlet UITextView *statusLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nonExistingLabel;
 
 - (IBAction)refreshLabels;
 - (IBAction)forceDownload;
