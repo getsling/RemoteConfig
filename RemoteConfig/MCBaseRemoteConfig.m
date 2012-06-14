@@ -106,7 +106,10 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
 - (void)applyMapping:(NSDictionary *)parsedData {
     for (NSString *keyPath in self.mapping) {
         NSString *attribute = [self.mapping objectForKey:keyPath];
-        [self setValue:[parsedData valueForKeyPath:keyPath] forKey:attribute];
+        id value = [parsedData valueForKeyPath:keyPath];
+        if(value != nil){
+            [self setValue:value forKey:attribute];
+        }
     }
 }
 

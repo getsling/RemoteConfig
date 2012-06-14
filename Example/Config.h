@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) NSNumber *exampleIntegerValue;
 @property (strong, nonatomic) NSString *exampleStringValue;
+@property (strong, nonatomic) NSString *nonExistingStringValue;
 
 + (Config *)config;
 
