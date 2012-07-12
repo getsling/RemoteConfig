@@ -22,7 +22,6 @@ Create a subclass of `MCJSONRemoteConfig` or `MCXMLRemoteConfig` and override th
 
 * `- (NSURL *)remoteFileLocation;` (required)
 * `- (void)setupMapping;` (required)
-* `- (void)statusChanged:(MCRemoteConfigStatus)status;` (optional)
 * `- (NSTimeInterval)redownloadRate;` (optional, by default the remote file is redownloaded every 24 hours)
 
 It's recommended to add synthesized properties for your config values. However, key value coding also works.
@@ -52,6 +51,14 @@ RemoteConfig requires ARC support and should run on iOS 4.0 and higher. However,
 Have a bug? Please create an issue on GitHub!
 
 https://github.com/gangverk/RemoteConfig/issues
+
+
+## To do
+The following items are on the to do list:
+
+* Use the last-modified header to control redownload rates
+* Add a method that takes a block, which runs only after the config has been downloaded from the server at least once (effectively ignoring locally defined values)
+* Add tests
 
 
 ## Contributing

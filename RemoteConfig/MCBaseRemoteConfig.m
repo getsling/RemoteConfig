@@ -54,10 +54,6 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
     return self;
 }
 
-- (void)dealloc {
-    // save class to disk
-}
-
 - (void)mapRemoteKeyPath:(NSString *)keyPath toLocalAttribute:(NSString *)attribute defaultValue:(id)defaultValue {
     [self.mapping setObject:attribute forKey:keyPath];
     [self setValue:defaultValue forKey:attribute];
