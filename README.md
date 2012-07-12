@@ -56,7 +56,7 @@ https://github.com/gangverk/RemoteConfig/issues
 ## To do
 The following items are on the to do list:
 
-* Use the last-modified header to control redownload rates
+* Check the last-modified header so we don't parse data if it wasn't changed (using NSURLRequestReloadRevalidatingCacheData already limits downloading, but we're still always parsing the old data)
 * Add tests
 
 
