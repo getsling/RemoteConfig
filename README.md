@@ -57,7 +57,6 @@ https://github.com/gangverk/RemoteConfig/issues
 The following items are on the to do list:
 
 * Use the last-modified header to control redownload rates
-* Add a method that takes a block, which runs only after the config has been downloaded from the server at least once (effectively ignoring locally defined values)
 * Add tests
 
 
