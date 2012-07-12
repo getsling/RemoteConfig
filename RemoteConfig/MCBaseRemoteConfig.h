@@ -18,6 +18,8 @@ typedef enum {
 
 extern NSString *const MCRemoteConfigStatusChangedNotification;
 
+typedef void (^MCRemoteConfigCompletionBlock)();
+
 @interface MCBaseRemoteConfig : NSObject <NSURLConnectionDelegate>
 
 @property (nonatomic) MCRemoteConfigStatusEnum MCRemoteConfigStatus;
@@ -25,6 +27,7 @@ extern NSString *const MCRemoteConfigStatusChangedNotification;
 // Public methods
 - (void)mapRemoteKeyPath:(NSString *)keyPath toLocalAttribute:(NSString *)attribute defaultValue:(id)defaultValue;
 - (void)downloadRemoteFile;
+- (void)executeBlockWhenDownloaded:(MCRemoteConfigCompletionBlock)block;
 
 // Overriden in JSONRemoteConfig and XMLRemoteConfig
 - (NSDictionary *)parseDownloadedData:(NSData *)data;

@@ -16,6 +16,7 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
 
 @property (strong, nonatomic) NSMutableData *receivedData;
 @property (strong, nonatomic) NSMutableDictionary *mapping;
+@property (copy, nonatomic) MCRemoteConfigCompletionBlock block;
 
 // Private methods
 - (void)loadConfig;
@@ -31,6 +32,7 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
 @synthesize MCRemoteConfigStatus = _MCRemoteConfigStatus;
 @synthesize receivedData = _receivedData;
 @synthesize mapping = _mapping;
+@synthesize block = _block;
 
 #pragma mark - Setters and getters
 
@@ -59,6 +61,16 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
     [self setValue:defaultValue forKey:attribute];
 }
 
+- (void)executeBlockWhenDownloaded:(MCRemoteConfigCompletionBlock)block {
+    if (self.MCRemoteConfigStatus == kMCRemoteConfigStatusUsingLocalConfig || self.MCRemoteConfigStatus == kMCRemoteConfigStatusUsingRemoteConfig) {
+        // We're already using the downloaded or saved value, so execute the block
+        block();
+    } else {
+        self.block = block;
+        [self downloadRemoteFile];
+    }
+}
+
 #pragma mark - Private methods
 
 - (void)loadConfig {
@@ -67,6 +79,12 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
     if (parsedData != nil) {
         [self applyMapping:parsedData];
         [self statusChanged:kMCRemoteConfigStatusUsingLocalConfig];
+
+        // If there is a block waiting, then execute it.
+        if (self.block) {
+            self.block();
+            self.block = nil;
+        }
     }
 }
 
@@ -76,7 +94,7 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
         // If the remote file has never been download, then we need to download it for sure
         return YES;
     }
-    
+
     NSTimeInterval rate = [self redownloadRate];
     if (rate) {
         NSDate *rateTimeAgo = [NSDate dateWithTimeIntervalSinceNow:-(rate)];
@@ -91,6 +109,11 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
 }
 
 - (void)downloadRemoteFile {
+    if (self.MCRemoteConfigStatus == kMCRemoteConfigStatusDownloading) {
+        // We're already downloading
+        return;
+    }
+
     [self statusChanged:kMCRemoteConfigStatusDownloading];
     NSURLRequest *request = [NSURLRequest requestWithURL:[self remoteFileLocation] cachePolicy:NSURLRequestReloadRevalidatingCacheData timeoutInterval:50];
     NSURLConnection *connection = [NSURLConnection connectionWithRequest:request delegate:self];
@@ -167,6 +190,12 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
     // Apply the mapping as given by [setupMapping]
     [self applyMapping:parsedData];
     [self statusChanged:kMCRemoteConfigStatusUsingRemoteConfig];
+
+    // If there is a block waiting, then execute it.
+    if (self.block) {
+        self.block();
+        self.block = nil;
+    }
 }
 
 @end

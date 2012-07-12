@@ -30,6 +30,11 @@ NSString *const MCRemoteConfigStatusStrings[] = {
     self.integerLabel.text = [NSString stringWithFormat:@"%@", [Config config].exampleIntegerValue];
     self.stringLabel.text = [Config config].exampleStringValue;
     self.nonExistingLabel.text = [Config config].nonExistingStringValue;
+
+    [[Config config] executeBlockWhenDownloaded:^{
+        // This is always a downloaded (or saved) version, not the locally defined default value
+        NSLog(@"This should never be the local default (\"Default local value\"): %@", [Config config].exampleStringValue);
+    }];
 }
 
 - (void)viewDidUnload {
