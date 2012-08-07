@@ -177,11 +177,15 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    // Save the date of the last download
-    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:MCRemoteConfigNSUserDefaultsKeyLastDownload];
-
     // Parse the NSData into a NSDictionary (responsabiliy of a subclass)
     NSDictionary *parsedData = [self parseDownloadedData:self.receivedData];
+
+    if (!parsedData) {
+        NSLog(@"No parsedData found");
+    }
+
+    // Save the date of the last download
+    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:MCRemoteConfigNSUserDefaultsKeyLastDownload];
 
     // Save the NSDictionary to NSUserDefaults
     [[NSUserDefaults standardUserDefaults] setObject:parsedData forKey:MCRemoteConfigNSUserDefaultsKeyConfig];

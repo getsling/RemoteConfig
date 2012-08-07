@@ -13,7 +13,13 @@
 
 - (NSDictionary *)parseDownloadedData:(NSData *)data {
     NSError *error = nil;
-    return JSONDecode(data, &error);
+    NSDictionary *dict = JSONDecode(data, &error);
+
+    if (error) {
+        NSLog(@"Parse error: %@", [error localizedDescription]);
+    }
+
+    return dict;
 }
 
 @end
