@@ -16,7 +16,8 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
 
 @property (strong, nonatomic) NSMutableData *receivedData;
 @property (strong, nonatomic) NSMutableDictionary *mapping;
-@property (copy, nonatomic) MCRemoteConfigCompletionBlock block;
+@property (copy, nonatomic) MCRemoteConfigCompletionSuccessBlock successBlock;
+@property (copy, nonatomic) MCRemoteConfigCompletionFailureBlock failureBlock;
 
 // Private methods
 - (void)loadConfig;
@@ -32,7 +33,8 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
 @synthesize MCRemoteConfigStatus = _MCRemoteConfigStatus;
 @synthesize receivedData = _receivedData;
 @synthesize mapping = _mapping;
-@synthesize block = _block;
+@synthesize successBlock = _successBlock;
+@synthesize failureBlock = _failureBlock;
 
 #pragma mark - Setters and getters
 
@@ -61,12 +63,13 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
     [self setValue:defaultValue forKey:attribute];
 }
 
-- (void)executeBlockWhenDownloaded:(MCRemoteConfigCompletionBlock)block {
+- (void)executeBlockWhenDownloaded:(MCRemoteConfigCompletionSuccessBlock)successBlock onFailure:(MCRemoteConfigCompletionFailureBlock)failureBlock {
     if (self.MCRemoteConfigStatus == kMCRemoteConfigStatusUsingLocalConfig || self.MCRemoteConfigStatus == kMCRemoteConfigStatusUsingRemoteConfig) {
         // We're already using the downloaded or saved value, so execute the block
-        block();
+        successBlock();
     } else {
-        self.block = block;
+        self.successBlock = successBlock;
+        self.failureBlock = failureBlock;
         [self downloadRemoteFile];
     }
 }
@@ -81,9 +84,9 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
         [self statusChanged:kMCRemoteConfigStatusUsingLocalConfig];
 
         // If there is a block waiting, then execute it.
-        if (self.block) {
-            self.block();
-            self.block = nil;
+        if (self.successBlock) {
+            self.successBlock();
+            self.successBlock = nil;
         }
     }
 }
@@ -174,10 +177,16 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     NSLog(@"Connection failed! Error - %@ %@", [error localizedDescription], [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
     [self statusChanged:kMCRemoteConfigStatusDownloadFailed];
+
+    // If there is a block waiting, then execute it.
+    if (self.failureBlock) {
+        self.failureBlock(error);
+        self.failureBlock = nil;
+    }
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    // Parse the NSData into a NSDictionary (responsabiliy of a subclass)
+    // Parse the NSData into a NSDictionary (responsibility of a subclass)
     NSDictionary *parsedData = [self parseDownloadedData:self.receivedData];
 
     if (!parsedData) {
@@ -196,9 +205,9 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
     [self statusChanged:kMCRemoteConfigStatusUsingRemoteConfig];
 
     // If there is a block waiting, then execute it.
-    if (self.block) {
-        self.block();
-        self.block = nil;
+    if (self.successBlock) {
+        self.successBlock();
+        self.successBlock = nil;
     }
 }
 

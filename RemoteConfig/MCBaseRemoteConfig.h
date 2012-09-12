@@ -18,7 +18,8 @@ typedef enum {
 
 extern NSString *const MCRemoteConfigStatusChangedNotification;
 
-typedef void (^MCRemoteConfigCompletionBlock)();
+typedef void (^MCRemoteConfigCompletionSuccessBlock)();
+typedef void (^MCRemoteConfigCompletionFailureBlock)(NSError *error);
 
 @interface MCBaseRemoteConfig : NSObject <NSURLConnectionDelegate>
 
@@ -27,7 +28,7 @@ typedef void (^MCRemoteConfigCompletionBlock)();
 // Public methods
 - (void)mapRemoteKeyPath:(NSString *)keyPath toLocalAttribute:(NSString *)attribute defaultValue:(id)defaultValue;
 - (void)downloadRemoteFile;
-- (void)executeBlockWhenDownloaded:(MCRemoteConfigCompletionBlock)block;
+- (void)executeBlockWhenDownloaded:(MCRemoteConfigCompletionSuccessBlock)successBlock onFailure:(MCRemoteConfigCompletionFailureBlock)failureBlock;
 
 // Overriden in JSONRemoteConfig and XMLRemoteConfig
 - (NSDictionary *)parseDownloadedData:(NSData *)data;

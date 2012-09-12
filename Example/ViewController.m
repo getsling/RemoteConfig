@@ -34,6 +34,8 @@ NSString *const MCRemoteConfigStatusStrings[] = {
     [[Config config] executeBlockWhenDownloaded:^{
         // This is always a downloaded (or saved) version, not the locally defined default value
         NSLog(@"This should never be the local default (\"Default local value\"): %@", [Config config].exampleStringValue);
+    } onFailure:^(NSError *error) {
+        NSLog(@"Download failure: %@", [error localizedDescription]);
     }];
 }
 
