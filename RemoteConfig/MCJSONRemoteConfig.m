@@ -13,8 +13,7 @@
 
 - (NSDictionary *)parseDownloadedData:(NSData *)data {
     NSError *error = nil;
-    NSString *dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSDictionary *dict = [MCJSONUtilities parseJSONResultString:dataString error:&error];
+    NSDictionary *dict = JSONDecode(data, &error);
 
     if (error) {
         NSLog(@"Parse error: %@", [error localizedDescription]);
