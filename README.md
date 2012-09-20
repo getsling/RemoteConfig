@@ -40,7 +40,6 @@ RemoteConfig uses [`NSJSONSerialization`](http://developer.apple.com/library/mac
 * [JSONKit](https://github.com/johnezang/JSONKit)
 * [SBJson](https://stig.github.com/json-framework/)
 * [YAJL](https://lloyd.github.com/yajl/)
-* [NextiveJson](https://github.com/nextive/NextiveJson)
 
 If you're not using JSON based config files, you don't need to include any of them.
 
@@ -67,13 +66,6 @@ RemoteConfig is an open source project and your contribution is very much apprec
 1. Check for [open issues](https://github.com/gangverk/RemoteConfig/issues) or [open a fresh issue](https://github.com/gangverk/RemoteConfig/issues/new) to start a discussion around a feature idea or a bug.
 2. Fork the [repository on Github](https://github.com/gangverk/RemoteConfig) and make your changes on the **develop** branch (or branch off of it).
 3. Make sure to add yourself to AUTHORS and send a pull request.
-
-
-## Credits
-Thanks go to:
-
-* [AFNetworking](https://github.com/AFNetworking/AFNetworking/) for the `MCJSONUtilities` wrapper around multiple JSON libraries.
-* [XML-to-NSDictionary](https://github.com/Coeur/XML-to-NSDictionary) for the `MCXMLReader` class.
 
 
 ## License

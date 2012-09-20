@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A41A896160B81490082606D /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A41A895160B81490082606D /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0A6F8630156E3F88007F2FC6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A6F862F156E3F88007F2FC6 /* UIKit.framework */; };
 		0A6F8632156E3F88007F2FC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A6F8631156E3F88007F2FC6 /* Foundation.framework */; };
 		0A6F8634156E3F88007F2FC6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A6F8633156E3F88007F2FC6 /* CoreGraphics.framework */; };
@@ -24,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A41A894160B81490082606D /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		0A41A895160B81490082606D /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		0A6F862B156E3F88007F2FC6 /* RemoteConfig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemoteConfig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A6F862F156E3F88007F2FC6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0A6F8631156E3F88007F2FC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -109,6 +112,8 @@
 				0A6F8645156E3F88007F2FC6 /* ViewController.m */,
 				0A6F864C156E3FC1007F2FC6 /* Config.h */,
 				0A6F864D156E3FC1007F2FC6 /* Config.m */,
+				0A41A894160B81490082606D /* JSONKit.h */,
+				0A41A895160B81490082606D /* JSONKit.m */,
 				0A6F8636156E3F88007F2FC6 /* Supporting Files */,
 			);
 			path = Example;
@@ -222,6 +227,7 @@
 				0A6F865C156E3FDA007F2FC6 /* MCJSONUtilities.m in Sources */,
 				0A6F865D156E3FDA007F2FC6 /* MCXMLReader.m in Sources */,
 				0A6F865E156E3FDA007F2FC6 /* MCXMLRemoteConfig.m in Sources */,
+				0A41A896160B81490082606D /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

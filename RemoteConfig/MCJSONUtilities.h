@@ -5,4 +5,8 @@
 
 #import <Foundation/Foundation.h>
 
-extern id JSONDecode(NSData *data, NSError **error);
+@interface MCJSONUtilities : NSObject
+
++ (id)parseJSONResultString:(NSString *)jsonString error:(NSError **)error;
+
+@end

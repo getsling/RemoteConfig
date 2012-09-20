@@ -19,11 +19,6 @@ NSString *const MCRemoteConfigStatusStrings[] = {
 
 @implementation ViewController
 
-@synthesize integerLabel = _integerLabel;
-@synthesize stringLabel = _stringLabel;
-@synthesize statusLabel = _statusLabel;
-@synthesize nonExistingLabel = _nonExistingLabel;
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusChanged:) name:MCRemoteConfigStatusChangedNotification object:nil];
