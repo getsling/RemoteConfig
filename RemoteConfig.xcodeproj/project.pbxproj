@@ -18,7 +18,7 @@
 		0A6F864E156E3FC1007F2FC6 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F864D156E3FC1007F2FC6 /* Config.m */; };
 		0A6F865A156E3FDA007F2FC6 /* MCBaseRemoteConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F8651156E3FDA007F2FC6 /* MCBaseRemoteConfig.m */; };
 		0A6F865B156E3FDA007F2FC6 /* MCJSONRemoteConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F8653156E3FDA007F2FC6 /* MCJSONRemoteConfig.m */; };
-		0A6F865C156E3FDA007F2FC6 /* MCJSONUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F8655156E3FDA007F2FC6 /* MCJSONUtilities.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0A6F865C156E3FDA007F2FC6 /* MCJSONUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F8655156E3FDA007F2FC6 /* MCJSONUtilities.m */; };
 		0A6F865D156E3FDA007F2FC6 /* MCXMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F8657156E3FDA007F2FC6 /* MCXMLReader.m */; };
 		0A6F865E156E3FDA007F2FC6 /* MCXMLRemoteConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F8659156E3FDA007F2FC6 /* MCXMLRemoteConfig.m */; };
 /* End PBXBuildFile section */

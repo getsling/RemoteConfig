@@ -3,6 +3,11 @@ Objective-c library for loading a remote JSON / XML config file with locally def
 
 
 ## Installation
+The best and easiest way is to use [CocoaPods](http://cocoapods.org).
+
+### Alternatives
+Not using CocoaPods?
+
 1. Get the code: `git clone git://github.com/gangverk/RemoteConfig.git`
 2. Drag the `RemoteConfig` subfolder to your project. Check both "copy items into destination group's folder" and your target.
 
@@ -11,10 +16,6 @@ Alternatively you can add this code as a Git submodule:
 1. `cd [your project root]`
 2. `git submodule add git://github.com/gangverk/RemoteConfig.git`
 3. Drag the `RemoteConfig` subfolder to your project. Uncheck the "copy items into destination group's folder" box, do check your target.
-
-However you get the code, you need to do one extra step:
-
-1. In your project settings go to the build fases. In the "compile sources" section add the `-fno-objc-arc` flag to `MCJSONUtilities.m`.
 
 
 ## How to get started
@@ -44,7 +45,7 @@ RemoteConfig uses [`NSJSONSerialization`](http://developer.apple.com/library/mac
 If you're not using JSON based config files, you don't need to include any of them.
 
 ### ARC Support
-RemoteConfig requires ARC support and should run on iOS 4.0 and higher. However, `MCJSONUtilities.m` needs to be compiled with the `-fno-objc-arc` flag. To do this in Xcode, go to your active target and select the "Build Phases" tab. In the "Compiler Flags" column, set `-fno-objc-arc` for `MCJSONUtilities.m`.
+RemoteConfig requires ARC support and should run on iOS 4.0 and higher.
 
 
 ## Issues and questions

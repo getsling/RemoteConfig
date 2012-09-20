@@ -1,6 +1,6 @@
 //
 //  MCXMLReader.h
-//
+//  RemoteConfig
 //
 
 #import <Foundation/Foundation.h>
