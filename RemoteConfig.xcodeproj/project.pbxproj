@@ -22,6 +22,7 @@
 		0A6F865C156E3FDA007F2FC6 /* MCJSONUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F8655156E3FDA007F2FC6 /* MCJSONUtilities.m */; };
 		0A6F865D156E3FDA007F2FC6 /* MCXMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F8657156E3FDA007F2FC6 /* MCXMLReader.m */; };
 		0A6F865E156E3FDA007F2FC6 /* MCXMLRemoteConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F8659156E3FDA007F2FC6 /* MCXMLRemoteConfig.m */; };
+		0AC05DB51613124800D49E39 /* CHANGELOG in Resources */ = {isa = PBXBuildFile; fileRef = 0AC05DB41613124800D49E39 /* CHANGELOG */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		0A6F865F156E40FC007F2FC6 /* AUTHORS */ = {isa = PBXFileReference; lastKnownFileType = text; path = AUTHORS; sourceTree = "<group>"; };
 		0A6F8660156E40FC007F2FC6 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		0A6F8661156E40FC007F2FC6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		0AC05DB41613124800D49E39 /* CHANGELOG */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				0A6F862C156E3F88007F2FC6 /* Products */,
 				0A6F865F156E40FC007F2FC6 /* AUTHORS */,
 				0A6F8660156E40FC007F2FC6 /* LICENSE */,
+				0AC05DB41613124800D49E39 /* CHANGELOG */,
 				0A6F8661156E40FC007F2FC6 /* README.md */,
 			);
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			files = (
 				0A6F863A156E3F88007F2FC6 /* InfoPlist.strings in Resources */,
 				0A6F8643156E3F88007F2FC6 /* MainStoryboard.storyboard in Resources */,
+				0AC05DB51613124800D49E39 /* CHANGELOG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

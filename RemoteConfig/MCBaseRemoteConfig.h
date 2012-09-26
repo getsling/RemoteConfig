@@ -37,5 +37,6 @@ typedef void (^MCRemoteConfigCompletionFailureBlock)(NSError *error);
 - (NSURL *)remoteFileLocation;
 - (void)setupMapping;
 - (NSTimeInterval)redownloadRate;
+- (NSTimeInterval)timeoutInterval;
 
 @end

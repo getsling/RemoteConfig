@@ -1,0 +1,8 @@
+1.1.0 - September 26, 2012
+- Feature: added the possibility to set a custom timeout by overriding - (NSTimeInterval)timeoutInterval
+
+1.0.1 - September 20, 2012
+- Bugfix: changes in MCJSONUtilities so it could run under ARC caused problems
+
+1.0.0 - September 20, 2012
+- First public CocoaPods release

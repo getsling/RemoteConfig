@@ -118,7 +118,7 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
     }
 
     [self statusChanged:kMCRemoteConfigStatusDownloading];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[self remoteFileLocation] cachePolicy:NSURLRequestReloadRevalidatingCacheData timeoutInterval:50];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[self remoteFileLocation] cachePolicy:NSURLRequestReloadRevalidatingCacheData timeoutInterval:[self timeoutInterval]];
     NSURLConnection *connection = [NSURLConnection connectionWithRequest:request delegate:self];
     if (connection) {
         self.receivedData = [NSMutableData data];
@@ -162,6 +162,11 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
     // By default we redownload the remote config file once every 24 hours
     // Return 0 if you always want to download the file
     return 60*60*24;
+}
+
+- (NSTimeInterval)timeoutInterval {
+    // By default we timeout the request at 30 seconds
+    return 30;
 }
 
 #pragma mark - NSURLConnectionDelegate
