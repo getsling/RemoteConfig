@@ -1,5 +1,5 @@
 //
-//  MCJSONUtilities.h
+//  GVJSONUtilities.h
 //  RemoteConfig
 //
 

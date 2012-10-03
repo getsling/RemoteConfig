@@ -17,11 +17,12 @@
 		0A6F8643156E3F88007F2FC6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A6F8641156E3F88007F2FC6 /* MainStoryboard.storyboard */; };
 		0A6F8646156E3F88007F2FC6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F8645156E3F88007F2FC6 /* ViewController.m */; };
 		0A6F864E156E3FC1007F2FC6 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F864D156E3FC1007F2FC6 /* Config.m */; };
-		0A6F865A156E3FDA007F2FC6 /* MCBaseRemoteConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F8651156E3FDA007F2FC6 /* MCBaseRemoteConfig.m */; };
-		0A6F865B156E3FDA007F2FC6 /* MCJSONRemoteConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F8653156E3FDA007F2FC6 /* MCJSONRemoteConfig.m */; };
-		0A6F865C156E3FDA007F2FC6 /* MCJSONUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F8655156E3FDA007F2FC6 /* MCJSONUtilities.m */; };
-		0A6F865D156E3FDA007F2FC6 /* MCXMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F8657156E3FDA007F2FC6 /* MCXMLReader.m */; };
-		0A6F865E156E3FDA007F2FC6 /* MCXMLRemoteConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F8659156E3FDA007F2FC6 /* MCXMLRemoteConfig.m */; };
+		0A6F865A156E3FDA007F2FC6 /* GVBaseRemoteConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F8651156E3FDA007F2FC6 /* GVBaseRemoteConfig.m */; };
+		0A6F865B156E3FDA007F2FC6 /* GVJSONRemoteConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F8653156E3FDA007F2FC6 /* GVJSONRemoteConfig.m */; };
+		0A6F865C156E3FDA007F2FC6 /* GVJSONUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F8655156E3FDA007F2FC6 /* GVJSONUtilities.m */; };
+		0A6F865D156E3FDA007F2FC6 /* GVXMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F8657156E3FDA007F2FC6 /* GVXMLReader.m */; };
+		0A6F865E156E3FDA007F2FC6 /* GVXMLRemoteConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F8659156E3FDA007F2FC6 /* GVXMLRemoteConfig.m */; };
+		0A7E5EF6161CD96A006AB45D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7E5EF5161CD96A006AB45D /* Default-568h@2x.png */; };
 		0AC05DB51613124800D49E39 /* CHANGELOG in Resources */ = {isa = PBXBuildFile; fileRef = 0AC05DB41613124800D49E39 /* CHANGELOG */; };
 /* End PBXBuildFile section */
 
@@ -43,19 +44,20 @@
 		0A6F8645156E3F88007F2FC6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0A6F864C156E3FC1007F2FC6 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		0A6F864D156E3FC1007F2FC6 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
-		0A6F8650156E3FDA007F2FC6 /* MCBaseRemoteConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCBaseRemoteConfig.h; sourceTree = "<group>"; };
-		0A6F8651156E3FDA007F2FC6 /* MCBaseRemoteConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCBaseRemoteConfig.m; sourceTree = "<group>"; };
-		0A6F8652156E3FDA007F2FC6 /* MCJSONRemoteConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCJSONRemoteConfig.h; sourceTree = "<group>"; };
-		0A6F8653156E3FDA007F2FC6 /* MCJSONRemoteConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCJSONRemoteConfig.m; sourceTree = "<group>"; };
-		0A6F8654156E3FDA007F2FC6 /* MCJSONUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCJSONUtilities.h; sourceTree = "<group>"; };
-		0A6F8655156E3FDA007F2FC6 /* MCJSONUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCJSONUtilities.m; sourceTree = "<group>"; };
-		0A6F8656156E3FDA007F2FC6 /* MCXMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCXMLReader.h; sourceTree = "<group>"; };
-		0A6F8657156E3FDA007F2FC6 /* MCXMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCXMLReader.m; sourceTree = "<group>"; };
-		0A6F8658156E3FDA007F2FC6 /* MCXMLRemoteConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCXMLRemoteConfig.h; sourceTree = "<group>"; };
-		0A6F8659156E3FDA007F2FC6 /* MCXMLRemoteConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCXMLRemoteConfig.m; sourceTree = "<group>"; };
+		0A6F8650156E3FDA007F2FC6 /* GVBaseRemoteConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVBaseRemoteConfig.h; sourceTree = "<group>"; };
+		0A6F8651156E3FDA007F2FC6 /* GVBaseRemoteConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVBaseRemoteConfig.m; sourceTree = "<group>"; };
+		0A6F8652156E3FDA007F2FC6 /* GVJSONRemoteConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVJSONRemoteConfig.h; sourceTree = "<group>"; };
+		0A6F8653156E3FDA007F2FC6 /* GVJSONRemoteConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVJSONRemoteConfig.m; sourceTree = "<group>"; };
+		0A6F8654156E3FDA007F2FC6 /* GVJSONUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVJSONUtilities.h; sourceTree = "<group>"; };
+		0A6F8655156E3FDA007F2FC6 /* GVJSONUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVJSONUtilities.m; sourceTree = "<group>"; };
+		0A6F8656156E3FDA007F2FC6 /* GVXMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVXMLReader.h; sourceTree = "<group>"; };
+		0A6F8657156E3FDA007F2FC6 /* GVXMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVXMLReader.m; sourceTree = "<group>"; };
+		0A6F8658156E3FDA007F2FC6 /* GVXMLRemoteConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVXMLRemoteConfig.h; sourceTree = "<group>"; };
+		0A6F8659156E3FDA007F2FC6 /* GVXMLRemoteConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVXMLRemoteConfig.m; sourceTree = "<group>"; };
 		0A6F865F156E40FC007F2FC6 /* AUTHORS */ = {isa = PBXFileReference; lastKnownFileType = text; path = AUTHORS; sourceTree = "<group>"; };
 		0A6F8660156E40FC007F2FC6 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		0A6F8661156E40FC007F2FC6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		0A7E5EF5161CD96A006AB45D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		0AC05DB41613124800D49E39 /* CHANGELOG */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,6 +127,7 @@
 		0A6F8636156E3F88007F2FC6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0A7E5EF5161CD96A006AB45D /* Default-568h@2x.png */,
 				0A6F8637156E3F88007F2FC6 /* RemoteConfig-Info.plist */,
 				0A6F8638156E3F88007F2FC6 /* InfoPlist.strings */,
 				0A6F863B156E3F88007F2FC6 /* main.m */,
@@ -137,12 +140,12 @@
 			isa = PBXGroup;
 			children = (
 				0A6F86EA156E4E85007F2FC6 /* Utilities */,
-				0A6F8650156E3FDA007F2FC6 /* MCBaseRemoteConfig.h */,
-				0A6F8651156E3FDA007F2FC6 /* MCBaseRemoteConfig.m */,
-				0A6F8652156E3FDA007F2FC6 /* MCJSONRemoteConfig.h */,
-				0A6F8653156E3FDA007F2FC6 /* MCJSONRemoteConfig.m */,
-				0A6F8658156E3FDA007F2FC6 /* MCXMLRemoteConfig.h */,
-				0A6F8659156E3FDA007F2FC6 /* MCXMLRemoteConfig.m */,
+				0A6F8650156E3FDA007F2FC6 /* GVBaseRemoteConfig.h */,
+				0A6F8651156E3FDA007F2FC6 /* GVBaseRemoteConfig.m */,
+				0A6F8652156E3FDA007F2FC6 /* GVJSONRemoteConfig.h */,
+				0A6F8653156E3FDA007F2FC6 /* GVJSONRemoteConfig.m */,
+				0A6F8658156E3FDA007F2FC6 /* GVXMLRemoteConfig.h */,
+				0A6F8659156E3FDA007F2FC6 /* GVXMLRemoteConfig.m */,
 			);
 			path = RemoteConfig;
 			sourceTree = "<group>";
@@ -150,10 +153,10 @@
 		0A6F86EA156E4E85007F2FC6 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				0A6F8654156E3FDA007F2FC6 /* MCJSONUtilities.h */,
-				0A6F8655156E3FDA007F2FC6 /* MCJSONUtilities.m */,
-				0A6F8656156E3FDA007F2FC6 /* MCXMLReader.h */,
-				0A6F8657156E3FDA007F2FC6 /* MCXMLReader.m */,
+				0A6F8654156E3FDA007F2FC6 /* GVJSONUtilities.h */,
+				0A6F8655156E3FDA007F2FC6 /* GVJSONUtilities.m */,
+				0A6F8656156E3FDA007F2FC6 /* GVXMLReader.h */,
+				0A6F8657156E3FDA007F2FC6 /* GVXMLReader.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -161,9 +164,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0A6F862A156E3F88007F2FC6 /* RemoteConfig */ = {
+		0A6F862A156E3F88007F2FC6 /* RemoteConfig Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0A6F8649156E3F88007F2FC6 /* Build configuration list for PBXNativeTarget "RemoteConfig" */;
+			buildConfigurationList = 0A6F8649156E3F88007F2FC6 /* Build configuration list for PBXNativeTarget "RemoteConfig Example" */;
 			buildPhases = (
 				0A6F8627156E3F88007F2FC6 /* Sources */,
 				0A6F8628156E3F88007F2FC6 /* Frameworks */,
@@ -173,7 +176,7 @@
 			);
 			dependencies = (
 			);
-			name = RemoteConfig;
+			name = "RemoteConfig Example";
 			productName = RemoteConfig;
 			productReference = 0A6F862B156E3F88007F2FC6 /* RemoteConfig.app */;
 			productType = "com.apple.product-type.application";
@@ -199,7 +202,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0A6F862A156E3F88007F2FC6 /* RemoteConfig */,
+				0A6F862A156E3F88007F2FC6 /* RemoteConfig Example */,
 			);
 		};
 /* End PBXProject section */
@@ -212,6 +215,7 @@
 				0A6F863A156E3F88007F2FC6 /* InfoPlist.strings in Resources */,
 				0A6F8643156E3F88007F2FC6 /* MainStoryboard.storyboard in Resources */,
 				0AC05DB51613124800D49E39 /* CHANGELOG in Resources */,
+				0A7E5EF6161CD96A006AB45D /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,11 +230,11 @@
 				0A6F8640156E3F88007F2FC6 /* AppDelegate.m in Sources */,
 				0A6F8646156E3F88007F2FC6 /* ViewController.m in Sources */,
 				0A6F864E156E3FC1007F2FC6 /* Config.m in Sources */,
-				0A6F865A156E3FDA007F2FC6 /* MCBaseRemoteConfig.m in Sources */,
-				0A6F865B156E3FDA007F2FC6 /* MCJSONRemoteConfig.m in Sources */,
-				0A6F865C156E3FDA007F2FC6 /* MCJSONUtilities.m in Sources */,
-				0A6F865D156E3FDA007F2FC6 /* MCXMLReader.m in Sources */,
-				0A6F865E156E3FDA007F2FC6 /* MCXMLRemoteConfig.m in Sources */,
+				0A6F865A156E3FDA007F2FC6 /* GVBaseRemoteConfig.m in Sources */,
+				0A6F865B156E3FDA007F2FC6 /* GVJSONRemoteConfig.m in Sources */,
+				0A6F865C156E3FDA007F2FC6 /* GVJSONUtilities.m in Sources */,
+				0A6F865D156E3FDA007F2FC6 /* GVXMLReader.m in Sources */,
+				0A6F865E156E3FDA007F2FC6 /* GVXMLRemoteConfig.m in Sources */,
 				0A41A896160B81490082606D /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,7 +340,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0A6F8649156E3F88007F2FC6 /* Build configuration list for PBXNativeTarget "RemoteConfig" */ = {
+		0A6F8649156E3F88007F2FC6 /* Build configuration list for PBXNativeTarget "RemoteConfig Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0A6F864A156E3F88007F2FC6 /* Debug */,

@@ -19,7 +19,7 @@ Alternatively you can add this code as a Git submodule:
 
 
 ## How to get started
-Create a subclass of `MCJSONRemoteConfig` or `MCXMLRemoteConfig` and override the following methods:
+Create a subclass of `GVJSONRemoteConfig` or `GVXMLRemoteConfig` and override the following methods:
 
 * `- (NSURL *)remoteFileLocation;` (required)
 * `- (void)setupMapping;` (required)
@@ -44,7 +44,7 @@ RemoteConfig uses [`NSJSONSerialization`](http://developer.apple.com/library/mac
 If you're not using JSON based config files, you don't need to include any of them.
 
 ### ARC Support
-RemoteConfig requires ARC support and should run on iOS 4.0 and higher.
+RemoteConfig is built using ARC and modern Objective-C syntax. You will need Xcode 4.4 or higher to use it in your project.
 
 
 ## Issues and questions

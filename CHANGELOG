@@ -1,3 +1,9 @@
+1.1.1 - October 3, 2012
+- Backwards incompatible change! Replaced all "MV" prefixes with "GV".
+- Changed copyright from Kevin Renskers to Gangverk
+- Updated example app to be iPhone 5 compatible
+- Now using modern Objective-c syntax, Xcode 4.4 or higher is required
+
 1.1.0 - September 26, 2012
 - Feature: added the possibility to set a custom timeout by overriding - (NSTimeInterval)timeoutInterval
 

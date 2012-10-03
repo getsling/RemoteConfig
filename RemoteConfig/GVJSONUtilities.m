@@ -1,9 +1,9 @@
 //
-//  MCJSONUtilities.m
+//  GVJSONUtilities.m
 //  RemoteConfig
 //
 
-#import "MCJSONUtilities.h"
+#import "GVJSONUtilities.h"
 
 id JSONDecode(NSData *data, NSError **error) {
     __unsafe_unretained id JSON = nil;

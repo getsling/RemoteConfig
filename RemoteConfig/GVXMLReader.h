@@ -1,11 +1,11 @@
 //
-//  MCXMLReader.h
+//  GVXMLReader.h
 //  RemoteConfig
 //
 
 #import <Foundation/Foundation.h>
 
-@interface MCXMLReader : NSObject <NSXMLParserDelegate>
+@interface GVXMLReader : NSObject <NSXMLParserDelegate>
 {
     NSMutableArray *dictionaryStack;
     NSMutableString *textInProgress;

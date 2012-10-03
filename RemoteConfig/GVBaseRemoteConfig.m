@@ -1,40 +1,34 @@
 //
-//  MCBaseRemoteConfig.m
+//  GVBaseRemoteConfig.m
 //  RemoteConfig
 //
 //  Created by Kevin Renskers on 23-05-12.
-//  Copyright (c) 2012 Kevin Renskers. All rights reserved.
+//  Copyright (c) 2012 Gangverk. All rights reserved.
 //
 
-#import "MCBaseRemoteConfig.h"
+#import "GVBaseRemoteConfig.h"
 
-static NSString *const MCRemoteConfigNSUserDefaultsKeyConfig = @"nl.mixedCase.RemoteConfig.config";
-static NSString *const MCRemoteConfigNSUserDefaultsKeyLastDownload = @"nl.mixedCase.RemoteConfig.lastDownload";
-NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteConfig.statusChangedNotification";
+static NSString *const GVRemoteConfigNSUserDefaultsKeyConfig = @"is.gangverk.RemoteConfig.config";
+static NSString *const GVRemoteConfigNSUserDefaultsKeyLastDownload = @"is.gangverk.RemoteConfig.lastDownload";
+NSString *const GVRemoteConfigStatusChangedNotification = @"is.gangverk.RemoteConfig.statusChangedNotification";
 
-@interface MCBaseRemoteConfig ()
+@interface GVBaseRemoteConfig ()
 
 @property (strong, nonatomic) NSMutableData *receivedData;
 @property (strong, nonatomic) NSMutableDictionary *mapping;
-@property (copy, nonatomic) MCRemoteConfigCompletionSuccessBlock successBlock;
-@property (copy, nonatomic) MCRemoteConfigCompletionFailureBlock failureBlock;
+@property (copy, nonatomic) GVRemoteConfigCompletionSuccessBlock successBlock;
+@property (copy, nonatomic) GVRemoteConfigCompletionFailureBlock failureBlock;
 
 // Private methods
 - (void)loadConfig;
 - (BOOL)needsToDownloadRemoteFile;
 - (void)applyMapping:(NSDictionary *)parsedData;
-- (void)statusChanged:(MCRemoteConfigStatusEnum)status;
+- (void)statusChanged:(GVRemoteConfigStatusEnum)status;
 
 @end
 
 
-@implementation MCBaseRemoteConfig
-
-@synthesize MCRemoteConfigStatus = _MCRemoteConfigStatus;
-@synthesize receivedData = _receivedData;
-@synthesize mapping = _mapping;
-@synthesize successBlock = _successBlock;
-@synthesize failureBlock = _failureBlock;
+@implementation GVBaseRemoteConfig
 
 #pragma mark - Setters and getters
 
@@ -63,8 +57,8 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
     [self setValue:defaultValue forKey:attribute];
 }
 
-- (void)executeBlockWhenDownloaded:(MCRemoteConfigCompletionSuccessBlock)successBlock onFailure:(MCRemoteConfigCompletionFailureBlock)failureBlock {
-    if (self.MCRemoteConfigStatus == kMCRemoteConfigStatusUsingLocalConfig || self.MCRemoteConfigStatus == kMCRemoteConfigStatusUsingRemoteConfig) {
+- (void)executeBlockWhenDownloaded:(GVRemoteConfigCompletionSuccessBlock)successBlock onFailure:(GVRemoteConfigCompletionFailureBlock)failureBlock {
+    if (self.GVRemoteConfigStatus == kGVRemoteConfigStatusUsingLocalConfig || self.GVRemoteConfigStatus == kGVRemoteConfigStatusUsingRemoteConfig) {
         // We're already using the downloaded or saved value, so execute the block
         successBlock();
     } else {
@@ -78,10 +72,10 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
 
 - (void)loadConfig {
     // Was the config already saved into NSUserDefaults?
-    NSDictionary *parsedData = [[NSUserDefaults standardUserDefaults] objectForKey:MCRemoteConfigNSUserDefaultsKeyConfig];
+    NSDictionary *parsedData = [[NSUserDefaults standardUserDefaults] objectForKey:GVRemoteConfigNSUserDefaultsKeyConfig];
     if (parsedData != nil) {
         [self applyMapping:parsedData];
-        [self statusChanged:kMCRemoteConfigStatusUsingLocalConfig];
+        [self statusChanged:kGVRemoteConfigStatusUsingLocalConfig];
 
         // If there is a block waiting, then execute it.
         if (self.successBlock) {
@@ -92,7 +86,7 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
 }
 
 - (BOOL)needsToDownloadRemoteFile {
-    NSDate *lastdownload = [[NSUserDefaults standardUserDefaults] objectForKey:MCRemoteConfigNSUserDefaultsKeyLastDownload];
+    NSDate *lastdownload = [[NSUserDefaults standardUserDefaults] objectForKey:GVRemoteConfigNSUserDefaultsKeyLastDownload];
     if (lastdownload == nil) {
         // If the remote file has never been download, then we need to download it for sure
         return YES;
@@ -112,12 +106,12 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
 }
 
 - (void)downloadRemoteFile {
-    if (self.MCRemoteConfigStatus == kMCRemoteConfigStatusDownloading) {
+    if (self.GVRemoteConfigStatus == kGVRemoteConfigStatusDownloading) {
         // We're already downloading
         return;
     }
 
-    [self statusChanged:kMCRemoteConfigStatusDownloading];
+    [self statusChanged:kGVRemoteConfigStatusDownloading];
     NSURLRequest *request = [NSURLRequest requestWithURL:[self remoteFileLocation] cachePolicy:NSURLRequestReloadRevalidatingCacheData timeoutInterval:[self timeoutInterval]];
     NSURLConnection *connection = [NSURLConnection connectionWithRequest:request delegate:self];
     if (connection) {
@@ -135,15 +129,15 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
     }
 }
 
-- (void)statusChanged:(MCRemoteConfigStatusEnum)status {
-    self.MCRemoteConfigStatus = status;
-    [[NSNotificationCenter defaultCenter] postNotificationName:MCRemoteConfigStatusChangedNotification object:self];
+- (void)statusChanged:(GVRemoteConfigStatusEnum)status {
+    self.GVRemoteConfigStatus = status;
+    [[NSNotificationCenter defaultCenter] postNotificationName:GVRemoteConfigStatusChangedNotification object:self];
 }
 
-#pragma mark - Overriden in JSONRemoteConfig and XMLRemoteConfig
+#pragma mark - Overriden in GVJSONRemoteConfig and GVXMLRemoteConfig
 
 - (NSDictionary *)parseDownloadedData:(NSData *)data {
-    NSAssert(NO, @"JSONRemoteconfig and XMLRemoteConfig subclasses need to overwrite this method");
+    NSAssert(NO, @"GVJSONRemoteconfig and GVXMLRemoteConfig subclasses need to overwrite this method");
     return nil;
 }
 
@@ -181,7 +175,7 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     NSLog(@"Connection failed! Error - %@ %@", [error localizedDescription], [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
-    [self statusChanged:kMCRemoteConfigStatusDownloadFailed];
+    [self statusChanged:kGVRemoteConfigStatusDownloadFailed];
 
     // If there is a block waiting, then execute it.
     if (self.failureBlock) {
@@ -199,15 +193,15 @@ NSString *const MCRemoteConfigStatusChangedNotification = @"nl.mixedCase.RemoteC
     }
 
     // Save the date of the last download
-    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:MCRemoteConfigNSUserDefaultsKeyLastDownload];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:GVRemoteConfigNSUserDefaultsKeyLastDownload];
 
     // Save the NSDictionary to NSUserDefaults
-    [[NSUserDefaults standardUserDefaults] setObject:parsedData forKey:MCRemoteConfigNSUserDefaultsKeyConfig];
+    [[NSUserDefaults standardUserDefaults] setObject:parsedData forKey:GVRemoteConfigNSUserDefaultsKeyConfig];
     [[NSUserDefaults standardUserDefaults] synchronize];
 
     // Apply the mapping as given by [setupMapping]
     [self applyMapping:parsedData];
-    [self statusChanged:kMCRemoteConfigStatusUsingRemoteConfig];
+    [self statusChanged:kGVRemoteConfigStatusUsingRemoteConfig];
 
     // If there is a block waiting, then execute it.
     if (self.successBlock) {

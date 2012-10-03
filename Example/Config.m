@@ -3,16 +3,12 @@
 //  RemoteConfig
 //
 //  Created by Kevin Renskers on 23-05-12.
-//  Copyright (c) 2012 Kevin Renskers. All rights reserved.
+//  Copyright (c) 2012 Gangverk. All rights reserved.
 //
 
 #import "Config.h"
 
 @implementation Config
-
-@synthesize exampleIntegerValue = _exampleIntegerValue;
-@synthesize exampleStringValue = _exampleStringValue;
-@synthesize nonExistingStringValue = _nonExistingStringValue;
 
 + (Config *)config {
     static dispatch_once_t pred;

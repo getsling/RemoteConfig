@@ -1,13 +1,13 @@
 //
-//  MCXMLReader.m
+//  GVXMLReader.m
 //  RemoteConfig
 //
 
-#import "MCXMLReader.h"
+#import "GVXMLReader.h"
 
 NSString *const kXMLReaderTextNodeKey = @"text";
 
-@interface MCXMLReader (Internal)
+@interface GVXMLReader (Internal)
 
 - (id)initWithError:(NSError *__autoreleasing *)error;
 - (NSMutableDictionary *)objectWithData:(NSData *)data;
@@ -64,7 +64,7 @@ NSString *const kXMLReaderTextNodeKey = @"text";
 
 @end
 
-@implementation MCXMLReader
+@implementation GVXMLReader
 
 #pragma mark -
 #pragma mark Public methods
@@ -73,14 +73,14 @@ NSString *const kXMLReaderTextNodeKey = @"text";
 {
     NSString *fullpath = [[NSBundle bundleForClass:self] pathForResource:path ofType:@"xml"];
 	NSData *data = [[NSFileManager defaultManager] contentsAtPath:fullpath];
-    NSMutableDictionary *rootDictionary = [MCXMLReader dictionaryForXMLData:data error:errorPointer];
+    NSMutableDictionary *rootDictionary = [GVXMLReader dictionaryForXMLData:data error:errorPointer];
     
 	return rootDictionary;
 }
 
 + (NSMutableDictionary *)dictionaryForXMLData:(NSData *)data error:(NSError *__autoreleasing *)error
 {
-    MCXMLReader *reader = [[MCXMLReader alloc] initWithError:error];
+    GVXMLReader *reader = [[GVXMLReader alloc] initWithError:error];
     NSMutableDictionary *rootDictionary = [reader objectWithData:data];    
     return rootDictionary;
 }
@@ -99,7 +99,7 @@ NSString *const kXMLReaderTextNodeKey = @"text";
     }
     
     NSData *data = [strData dataUsingEncoding:NSUTF8StringEncoding];
-    return [MCXMLReader dictionaryForXMLData:data error:error];
+    return [GVXMLReader dictionaryForXMLData:data error:error];
 }
 
 #pragma mark -

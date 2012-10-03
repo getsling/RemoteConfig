@@ -3,13 +3,13 @@
 //  RemoteConfig
 //
 //  Created by Kevin Renskers on 24-05-12.
-//  Copyright (c) 2012 Kevin Renskers. All rights reserved.
+//  Copyright (c) 2012 Gangverk. All rights reserved.
 //
 
 #import "ViewController.h"
 #import "Config.h"
 
-NSString *const MCRemoteConfigStatusStrings[] = {
+NSString *const GVRemoteConfigStatusStrings[] = {
     @"Using defaults\n", 
     @"Using locally saved config\n", 
     @"Downloading\n", 
@@ -17,11 +17,25 @@ NSString *const MCRemoteConfigStatusStrings[] = {
     @"Using remote config\n"
 };
 
+
+@interface ViewController ()
+
+@property (weak, nonatomic) IBOutlet UILabel *integerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *stringLabel;
+@property (weak, nonatomic) IBOutlet UITextView *statusLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nonExistingLabel;
+
+- (IBAction)refreshLabels;
+- (IBAction)forceDownload;
+
+@end
+
+
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusChanged:) name:MCRemoteConfigStatusChangedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusChanged:) name:GVRemoteConfigStatusChangedNotification object:nil];
     self.integerLabel.text = [NSString stringWithFormat:@"%@", [Config config].exampleIntegerValue];
     self.stringLabel.text = [Config config].exampleStringValue;
     self.nonExistingLabel.text = [Config config].nonExistingStringValue;
@@ -35,13 +49,12 @@ NSString *const MCRemoteConfigStatusStrings[] = {
 }
 
 - (void)viewDidUnload {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:MCRemoteConfigStatusChangedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:GVRemoteConfigStatusChangedNotification object:nil];
     [self setIntegerLabel:nil];
     [self setStatusLabel:nil];
     [self setStringLabel:nil];
     [self setNonExistingLabel:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (IBAction)refreshLabels {
@@ -56,7 +69,7 @@ NSString *const MCRemoteConfigStatusStrings[] = {
 
 - (void)statusChanged:(NSNotification *)notification {
     Config *config = notification.object;
-    self.statusLabel.text = [self.statusLabel.text stringByAppendingString:MCRemoteConfigStatusStrings[config.MCRemoteConfigStatus]];
+    self.statusLabel.text = [self.statusLabel.text stringByAppendingString:GVRemoteConfigStatusStrings[config.GVRemoteConfigStatus]];
 }
 
 @end
