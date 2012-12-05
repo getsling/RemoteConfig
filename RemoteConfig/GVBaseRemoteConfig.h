@@ -27,6 +27,7 @@ typedef void (^GVRemoteConfigCompletionFailureBlock)(NSError *error);
 
 // Public methods
 - (void)mapRemoteKeyPath:(NSString *)keyPath toLocalAttribute:(NSString *)attribute defaultValue:(id)defaultValue;
+- (BOOL)needsToDownloadRemoteFile;
 - (void)downloadRemoteFile;
 - (void)executeBlockWhenDownloaded:(GVRemoteConfigCompletionSuccessBlock)successBlock onFailure:(GVRemoteConfigCompletionFailureBlock)failureBlock;
 
