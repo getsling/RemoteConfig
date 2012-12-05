@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "RemoteConfig"
-  s.version      = "1.2"
+  s.version      = "1.2.0"
   s.summary      = "Objective-c library for loading a remote JSON / XML config file with locally defined default values."
   s.homepage     = "https://github.com/gangverk/RemoteConfig"
   s.license      = 'MIT'
