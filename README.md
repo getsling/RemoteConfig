@@ -48,9 +48,7 @@ RemoteConfig is built using ARC and modern Objective-C syntax. You will need Xco
 
 
 ## Issues and questions
-Have a bug? Please create an issue on GitHub!
-
-https://github.com/gangverk/RemoteConfig/issues
+Have a bug? Please [create an issue on GitHub](https://github.com/gangverk/RemoteConfig/issues)!
 
 
 ## To do
@@ -66,6 +64,14 @@ RemoteConfig is an open source project and your contribution is very much apprec
 1. Check for [open issues](https://github.com/gangverk/RemoteConfig/issues) or [open a fresh issue](https://github.com/gangverk/RemoteConfig/issues/new) to start a discussion around a feature idea or a bug.
 2. Fork the [repository on Github](https://github.com/gangverk/RemoteConfig) and make your changes on the **develop** branch (or branch off of it).
 3. Make sure to add yourself to AUTHORS and send a pull request.
+
+
+## Apps using RemoteConfig
+* Last.fm Scrobbler
+* MetroLyrics
+* Radio.com
+
+Are you using RemoteConfig in your iOS or Mac OS X app? Send a pull request with an updated README.md file to be included.
 
 
 ## License
