@@ -70,6 +70,7 @@ RemoteConfig is an open source project and your contribution is very much apprec
 * Last.fm Scrobbler
 * MetroLyrics
 * Radio.com
+* Tailgate Fan
 
 Are you using RemoteConfig in your iOS or Mac OS X app? Send a pull request with an updated README.md file to be included.
 
