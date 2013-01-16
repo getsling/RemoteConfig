@@ -10,6 +10,7 @@ Not using CocoaPods?
 
 1. Get the code: `git clone git://github.com/gangverk/RemoteConfig.git`
 2. Drag the `RemoteConfig` subfolder to your project. Check both "copy items into destination group's folder" and your target.
+3. Add [XMLReader](https://github.com/RestKit/XML-to-NSDictionary) to your project, including its requirements (libxml2)
 
 Alternatively you can add this code as a Git submodule:
 
@@ -30,6 +31,8 @@ It's recommended to add synthesized properties for your config values. However, 
 
 ### Example
 See the included example app: [`Config.m`](https://github.com/gangverk/RemoteConfig/blob/master/Example/Config.m) and [`ViewController.m`](https://github.com/gangverk/RemoteConfig/blob/master/Example/ViewController.m).
+
+To run the example app, install its dependancies via CocoaPods: `pod install`.
 
 
 ## Requirements

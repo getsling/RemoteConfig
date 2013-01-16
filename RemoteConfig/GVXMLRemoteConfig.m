@@ -7,13 +7,13 @@
 //
 
 #import "GVXMLRemoteConfig.h"
-#import "GVXMLReader.h"
+#import "XMLReader.h"
 
 @implementation GVXMLRemoteConfig
 
 - (NSDictionary *)parseDownloadedData:(NSData *)data {
     NSError *error = nil;
-    return [GVXMLReader dictionaryForXMLData:data error:&error];
+    return [XMLReader dictionaryForXMLData:data error:&error];
 }
 
 @end
