@@ -39,5 +39,7 @@ typedef void (^GVRemoteConfigCompletionFailureBlock)(NSError *error);
 - (void)setupMapping;
 - (NSTimeInterval)redownloadRate;
 - (NSTimeInterval)timeoutInterval;
+- (NSString *)defaultsKeyStoredValues;
+- (NSString *)defaultsKeyLastDownload;
 
 @end

@@ -8,8 +8,6 @@
 
 #import "GVBaseRemoteConfig.h"
 
-static NSString *const GVRemoteConfigNSUserDefaultsKeyConfig = @"is.gangverk.RemoteConfig.config";
-static NSString *const GVRemoteConfigNSUserDefaultsKeyLastDownload = @"is.gangverk.RemoteConfig.lastDownload";
 NSString *const GVRemoteConfigStatusChangedNotification = @"is.gangverk.RemoteConfig.statusChangedNotification";
 
 @interface GVBaseRemoteConfig ()
@@ -72,7 +70,7 @@ NSString *const GVRemoteConfigStatusChangedNotification = @"is.gangverk.RemoteCo
 
 - (void)loadConfig {
     // Was the config already saved into NSUserDefaults?
-    NSDictionary *parsedData = [[NSUserDefaults standardUserDefaults] objectForKey:GVRemoteConfigNSUserDefaultsKeyConfig];
+    NSDictionary *parsedData = [[NSUserDefaults standardUserDefaults] objectForKey:[self defaultsKeyStoredValues]];
     if (parsedData != nil) {
         [self applyMapping:parsedData];
         [self statusChanged:kGVRemoteConfigStatusUsingLocalConfig];
@@ -86,7 +84,7 @@ NSString *const GVRemoteConfigStatusChangedNotification = @"is.gangverk.RemoteCo
 }
 
 - (BOOL)needsToDownloadRemoteFile {
-    NSDate *lastdownload = [[NSUserDefaults standardUserDefaults] objectForKey:GVRemoteConfigNSUserDefaultsKeyLastDownload];
+    NSDate *lastdownload = [[NSUserDefaults standardUserDefaults] objectForKey:[self defaultsKeyLastDownload]];
     if (lastdownload == nil) {
         // If the remote file has never been download, then we need to download it for sure
         return YES;
@@ -163,6 +161,14 @@ NSString *const GVRemoteConfigStatusChangedNotification = @"is.gangverk.RemoteCo
     return 30;
 }
 
+- (NSString *)defaultsKeyStoredValues {
+    return @"is.gangverk.RemoteConfig.config";
+}
+
+- (NSString *)defaultsKeyLastDownload {
+    return @"is.gangverk.RemoteConfig.lastDownload";
+}
+
 #pragma mark - NSURLConnectionDelegate
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
@@ -193,10 +199,10 @@ NSString *const GVRemoteConfigStatusChangedNotification = @"is.gangverk.RemoteCo
     }
 
     // Save the date of the last download
-    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:GVRemoteConfigNSUserDefaultsKeyLastDownload];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:[self defaultsKeyLastDownload]];
 
     // Save the NSDictionary to NSUserDefaults
-    [[NSUserDefaults standardUserDefaults] setObject:parsedData forKey:GVRemoteConfigNSUserDefaultsKeyConfig];
+    [[NSUserDefaults standardUserDefaults] setObject:parsedData forKey:[self defaultsKeyStoredValues]];
     [[NSUserDefaults standardUserDefaults] synchronize];
 
     // Apply the mapping as given by [setupMapping]
