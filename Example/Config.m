@@ -10,7 +10,7 @@
 
 @implementation Config
 
-+ (Config *)config {
++ (Config *)sharedInstance {
     static dispatch_once_t pred;
     static Config *sharedInstance = nil;
     dispatch_once(&pred, ^{ sharedInstance = [[self alloc] init]; });

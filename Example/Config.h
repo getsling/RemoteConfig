@@ -14,6 +14,6 @@
 @property (strong, nonatomic) NSString *exampleStringValue;
 @property (strong, nonatomic) NSString *nonExistingStringValue;
 
-+ (Config *)config;
++ (Config *)sharedInstance;
 
 @end

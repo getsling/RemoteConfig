@@ -36,13 +36,13 @@ NSString *const GVRemoteConfigStatusStrings[] = {
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusChanged:) name:GVRemoteConfigStatusChangedNotification object:nil];
-    self.integerLabel.text = [NSString stringWithFormat:@"%@", [Config config].exampleIntegerValue];
-    self.stringLabel.text = [Config config].exampleStringValue;
-    self.nonExistingLabel.text = [Config config].nonExistingStringValue;
+    self.integerLabel.text = [NSString stringWithFormat:@"%@", [Config sharedInstance].exampleIntegerValue];
+    self.stringLabel.text = [Config sharedInstance].exampleStringValue;
+    self.nonExistingLabel.text = [Config sharedInstance].nonExistingStringValue;
 
-    [[Config config] executeBlockWhenDownloaded:^{
+    [[Config sharedInstance] executeBlockWhenDownloaded:^{
         // This is always a downloaded (or saved) version, not the locally defined default value
-        NSLog(@"This should never be the local default (\"Default local value\"): %@", [Config config].exampleStringValue);
+        NSLog(@"This should never be the local default (\"Default local value\"): %@", [Config sharedInstance].exampleStringValue);
     } onFailure:^(NSError *error) {
         NSLog(@"Download failure: %@", [error localizedDescription]);
     }];
@@ -58,13 +58,13 @@ NSString *const GVRemoteConfigStatusStrings[] = {
 }
 
 - (IBAction)refreshLabels {
-    self.integerLabel.text = [NSString stringWithFormat:@"%@", [Config config].exampleIntegerValue];
-    self.stringLabel.text = [Config config].exampleStringValue;
-    self.nonExistingLabel.text = [Config config].nonExistingStringValue;
+    self.integerLabel.text = [NSString stringWithFormat:@"%@", [Config sharedInstance].exampleIntegerValue];
+    self.stringLabel.text = [Config sharedInstance].exampleStringValue;
+    self.nonExistingLabel.text = [Config sharedInstance].nonExistingStringValue;
 }
 
 - (IBAction)forceDownload {
-    [[Config config] downloadRemoteFile];
+    [[Config sharedInstance] downloadRemoteFile];
 }
 
 - (void)statusChanged:(NSNotification *)notification {
