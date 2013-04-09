@@ -98,9 +98,12 @@ NSString *const GVRemoteConfigStatusChangedNotification = @"is.gangverk.RemoteCo
             // (now-rate) is greater then last download time, so we need to redownload
             return YES;
         }
+
+        return NO;
     }
 
-    return NO;
+    // Rate is 0, always re-download
+    return YES;
 }
 
 - (void)downloadRemoteFile {
