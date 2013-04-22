@@ -197,25 +197,25 @@ NSString *const GVRemoteConfigStatusChangedNotification = @"is.gangverk.RemoteCo
     // Parse the NSData into a NSDictionary (responsibility of a subclass)
     NSDictionary *parsedData = [self parseDownloadedData:self.receivedData];
 
-    if (!parsedData) {
+    if (parsedData) {
+        // Save the date of the last download
+        [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:[self defaultsKeyLastDownload]];
+
+        // Save the NSDictionary to NSUserDefaults
+        [[NSUserDefaults standardUserDefaults] setObject:parsedData forKey:[self defaultsKeyStoredValues]];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+
+        // Apply the mapping as given by [setupMapping]
+        [self applyMapping:parsedData];
+        [self statusChanged:kGVRemoteConfigStatusUsingRemoteConfig];
+
+        // If there is a block waiting, then execute it.
+        if (self.successBlock) {
+            self.successBlock();
+            self.successBlock = nil;
+        }
+    } else {
         NSLog(@"No parsedData found");
-    }
-
-    // Save the date of the last download
-    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:[self defaultsKeyLastDownload]];
-
-    // Save the NSDictionary to NSUserDefaults
-    [[NSUserDefaults standardUserDefaults] setObject:parsedData forKey:[self defaultsKeyStoredValues]];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-
-    // Apply the mapping as given by [setupMapping]
-    [self applyMapping:parsedData];
-    [self statusChanged:kGVRemoteConfigStatusUsingRemoteConfig];
-
-    // If there is a block waiting, then execute it.
-    if (self.successBlock) {
-        self.successBlock();
-        self.successBlock = nil;
     }
 }
 
