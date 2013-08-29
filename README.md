@@ -69,7 +69,7 @@ RemoteConfig uses [`NSJSONSerialization`](http://developer.apple.com/library/mac
 * [yajl_json](http://gabriel.github.com/yajl-objc/)
 * [NextiveJSON](https://github.com/nextive/NextiveJson)
 
-If you're not using JSON based config files, you don't need to include any of them.
+If you're not using JSON based config files (or if you're targeting iOS 5+), you don't need to include any of them.
 
 ### ARC Support
 RemoteConfig is built using ARC and modern Objective-C syntax. You will need Xcode 4.4 or higher to use it in your project.
