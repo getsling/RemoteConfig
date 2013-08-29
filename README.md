@@ -5,18 +5,7 @@ Objective-c library for loading a remote JSON / XML config file with locally def
 ## Installation
 The best and easiest way is to use [CocoaPods](http://cocoapods.org).
 
-### Alternatives
-Not using CocoaPods?
-
-1. Get the code: `git clone git://github.com/gangverk/RemoteConfig.git`
-2. Drag the `RemoteConfig` subfolder to your project. Check both "copy items into destination group's folder" and your target.
-3. Add [XMLReader](https://github.com/RestKit/XML-to-NSDictionary) to your project, including its requirements (libxml2)
-
-Alternatively you can add this code as a Git submodule:
-
-1. `cd [your project root]`
-2. `git submodule add git://github.com/gangverk/RemoteConfig.git`
-3. Drag the `RemoteConfig` subfolder to your project. Uncheck the "copy items into destination group's folder" box, do check your target.
+    pod 'RemoteConfig'
 
 
 ## How to get started
@@ -34,6 +23,41 @@ See the included example app: [`Config.m`](https://github.com/gangverk/RemoteCon
 
 To run the example app, install its dependancies via CocoaPods: `pod install`.
 
+```
+@interface Config : GVJSONRemoteConfig
+
+@property (strong, nonatomic) NSNumber *exampleIntegerValue;
+@property (strong, nonatomic) NSString *exampleStringValue;
+@property (strong, nonatomic) NSString *nonExistingStringValue;
+
++ (Config *)sharedInstance;
+
+@end
+```
+
+```
+@implementation Config
+
++ (Config *)sharedInstance {
+    static dispatch_once_t pred;
+    static Config *sharedInstance = nil;
+    dispatch_once(&pred, ^{ sharedInstance = [[self alloc] init]; });
+    return sharedInstance;
+}
+
+- (NSURL *)remoteFileLocation {
+    return [NSURL URLWithString:@"https://raw.github.com/gangverk/RemoteConfig/master/Example/example.json"];
+}
+
+- (void)setupMapping {
+    [self mapRemoteKeyPath:@"remote_integer_value" toLocalAttribute:@"exampleIntegerValue" defaultValue:[NSNumber numberWithInteger:1]];
+    [self mapRemoteKeyPath:@"remote_string_value" toLocalAttribute:@"exampleStringValue" defaultValue:@"Default local value"];
+    [self mapRemoteKeyPath:@"nonexisting_string_value" toLocalAttribute:@"nonExistingStringValue" defaultValue:@"Default local value for nonexisting value on server"];
+}
+
+@end
+```
+
 
 ## Requirements
 
@@ -42,7 +66,8 @@ RemoteConfig uses [`NSJSONSerialization`](http://developer.apple.com/library/mac
 
 * [JSONKit](https://github.com/johnezang/JSONKit)
 * [SBJson](https://stig.github.com/json-framework/)
-* [YAJL](https://lloyd.github.com/yajl/)
+* [yajl_json](http://gabriel.github.com/yajl-objc/)
+* [NextiveJSON](https://github.com/nextive/NextiveJson)
 
 If you're not using JSON based config files, you don't need to include any of them.
 
@@ -58,7 +83,6 @@ Have a bug? Please [create an issue on GitHub](https://github.com/gangverk/Remot
 The following items are on the to do list:
 
 * Check the last-modified header so we don't parse data if it wasn't changed (using NSURLRequestReloadRevalidatingCacheData already limits downloading, but we're still always parsing the old data)
-* Use https://github.com/mattt/AnyJSON
 * Add tests
 
 

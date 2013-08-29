@@ -7,19 +7,23 @@
 //
 
 #import "GVJSONRemoteConfig.h"
-#import "GVJSONUtilities.h"
 
 @implementation GVJSONRemoteConfig
 
 - (NSDictionary *)parseDownloadedData:(NSData *)data {
     NSError *error = nil;
-    NSDictionary *dict = JSONDecode(data, &error);
+    id object = [NSJSONSerialization JSONObjectWithData:data options:9 error:&error];
 
     if (error) {
         NSLog(@"Parse error: %@", [error localizedDescription]);
+        return nil;
     }
 
-    return dict;
+    if ([object isKindOfClass:[NSDictionary class]]) {
+        return object;
+    }
+
+    return nil;
 }
 
 @end

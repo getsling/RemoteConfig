@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A41A896160B81490082606D /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A41A895160B81490082606D /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0A6D0FE9166F575800737304 /* RemoteConfig.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 0A6D0FE8166F575800737304 /* RemoteConfig.podspec */; };
 		0A6F8630156E3F88007F2FC6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A6F862F156E3F88007F2FC6 /* UIKit.framework */; };
 		0A6F8632156E3F88007F2FC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A6F8631156E3F88007F2FC6 /* Foundation.framework */; };
@@ -20,7 +19,6 @@
 		0A6F864E156E3FC1007F2FC6 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F864D156E3FC1007F2FC6 /* Config.m */; };
 		0A6F865A156E3FDA007F2FC6 /* GVBaseRemoteConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F8651156E3FDA007F2FC6 /* GVBaseRemoteConfig.m */; };
 		0A6F865B156E3FDA007F2FC6 /* GVJSONRemoteConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F8653156E3FDA007F2FC6 /* GVJSONRemoteConfig.m */; };
-		0A6F865C156E3FDA007F2FC6 /* GVJSONUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F8655156E3FDA007F2FC6 /* GVJSONUtilities.m */; };
 		0A6F865E156E3FDA007F2FC6 /* GVXMLRemoteConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F8659156E3FDA007F2FC6 /* GVXMLRemoteConfig.m */; };
 		0A7E5EF6161CD96A006AB45D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7E5EF5161CD96A006AB45D /* Default-568h@2x.png */; };
 		0AB06E3B161DF7E200149057 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AB06E39161DF7E200149057 /* Icon.png */; };
@@ -30,10 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A41A894160B81490082606D /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
-		0A41A895160B81490082606D /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		0A6D0FE8166F575800737304 /* RemoteConfig.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RemoteConfig.podspec; sourceTree = "<group>"; };
-		0A6F862B156E3F88007F2FC6 /* RemoteConfig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = RemoteConfig.app; path = "RemoteConfig Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A6F862B156E3F88007F2FC6 /* RemoteConfig Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RemoteConfig Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A6F862F156E3F88007F2FC6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0A6F8631156E3F88007F2FC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0A6F8633156E3F88007F2FC6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -52,8 +48,6 @@
 		0A6F8651156E3FDA007F2FC6 /* GVBaseRemoteConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVBaseRemoteConfig.m; sourceTree = "<group>"; };
 		0A6F8652156E3FDA007F2FC6 /* GVJSONRemoteConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVJSONRemoteConfig.h; sourceTree = "<group>"; };
 		0A6F8653156E3FDA007F2FC6 /* GVJSONRemoteConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVJSONRemoteConfig.m; sourceTree = "<group>"; };
-		0A6F8654156E3FDA007F2FC6 /* GVJSONUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVJSONUtilities.h; sourceTree = "<group>"; };
-		0A6F8655156E3FDA007F2FC6 /* GVJSONUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVJSONUtilities.m; sourceTree = "<group>"; };
 		0A6F8658156E3FDA007F2FC6 /* GVXMLRemoteConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVXMLRemoteConfig.h; sourceTree = "<group>"; };
 		0A6F8659156E3FDA007F2FC6 /* GVXMLRemoteConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVXMLRemoteConfig.m; sourceTree = "<group>"; };
 		0A6F865F156E40FC007F2FC6 /* AUTHORS */ = {isa = PBXFileReference; lastKnownFileType = text; path = AUTHORS; sourceTree = "<group>"; };
@@ -101,7 +95,7 @@
 		0A6F862C156E3F88007F2FC6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0A6F862B156E3F88007F2FC6 /* RemoteConfig.app */,
+				0A6F862B156E3F88007F2FC6 /* RemoteConfig Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -127,8 +121,6 @@
 				0A6F8645156E3F88007F2FC6 /* ViewController.m */,
 				0A6F864C156E3FC1007F2FC6 /* Config.h */,
 				0A6F864D156E3FC1007F2FC6 /* Config.m */,
-				0A41A894160B81490082606D /* JSONKit.h */,
-				0A41A895160B81490082606D /* JSONKit.m */,
 				0A6F8636156E3F88007F2FC6 /* Supporting Files */,
 			);
 			path = Example;
@@ -151,7 +143,6 @@
 		0A6F864F156E3FDA007F2FC6 /* RemoteConfig */ = {
 			isa = PBXGroup;
 			children = (
-				0A6F86EA156E4E85007F2FC6 /* Utilities */,
 				0A6F8650156E3FDA007F2FC6 /* GVBaseRemoteConfig.h */,
 				0A6F8651156E3FDA007F2FC6 /* GVBaseRemoteConfig.m */,
 				0A6F8652156E3FDA007F2FC6 /* GVJSONRemoteConfig.h */,
@@ -160,15 +151,6 @@
 				0A6F8659156E3FDA007F2FC6 /* GVXMLRemoteConfig.m */,
 			);
 			path = RemoteConfig;
-			sourceTree = "<group>";
-		};
-		0A6F86EA156E4E85007F2FC6 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				0A6F8654156E3FDA007F2FC6 /* GVJSONUtilities.h */,
-				0A6F8655156E3FDA007F2FC6 /* GVJSONUtilities.m */,
-			);
-			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,7 +171,7 @@
 			);
 			name = "RemoteConfig Example";
 			productName = RemoteConfig;
-			productReference = 0A6F862B156E3F88007F2FC6 /* RemoteConfig.app */;
+			productReference = 0A6F862B156E3F88007F2FC6 /* RemoteConfig Example.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -263,9 +245,7 @@
 				0A6F864E156E3FC1007F2FC6 /* Config.m in Sources */,
 				0A6F865A156E3FDA007F2FC6 /* GVBaseRemoteConfig.m in Sources */,
 				0A6F865B156E3FDA007F2FC6 /* GVJSONRemoteConfig.m in Sources */,
-				0A6F865C156E3FDA007F2FC6 /* GVJSONUtilities.m in Sources */,
 				0A6F865E156E3FDA007F2FC6 /* GVXMLRemoteConfig.m in Sources */,
-				0A41A896160B81490082606D /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
