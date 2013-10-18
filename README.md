@@ -1,4 +1,8 @@
 # RemoteConfig
+
+[![Badge w/ Version](https://cocoapod-badges.herokuapp.com/v/RemoteConfig/badge.png)](http://cocoadocs.org/docsets/RemoteConfig)
+[![Badge w/ Platform](https://cocoapod-badges.herokuapp.com/p/RemoteConfig/badge.svg)](http://cocoadocs.org/docsets/RemoteConfig)
+
 Objective-c library for loading a remote JSON / XML config file with locally defined default values.
 
 
