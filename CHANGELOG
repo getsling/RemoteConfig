@@ -1,3 +1,6 @@
+1.5.0 - February 26, 2014
+- Completely removed the AnyJSON dependancy, simply use NSJSONSerialization (iOS 5+)
+
 1.4.0 - August 29, 2013
 - Using the AnyJSON project instead of our own implementation
 
