@@ -55,15 +55,9 @@ NSString *const GVRemoteConfigStatusChangedNotification = @"is.gangverk.RemoteCo
     [self setValue:defaultValue forKey:attribute];
 }
 
-- (void)executeBlockWhenDownloaded:(GVRemoteConfigCompletionSuccessBlock)successBlock onFailure:(GVRemoteConfigCompletionFailureBlock)failureBlock {
-    if (self.GVRemoteConfigStatus == kGVRemoteConfigStatusUsingLocalConfig || self.GVRemoteConfigStatus == kGVRemoteConfigStatusUsingRemoteConfig) {
-        // We're already using the downloaded or saved value, so execute the block
-        successBlock();
-    } else {
-        self.successBlock = successBlock;
-        self.failureBlock = failureBlock;
-        [self downloadRemoteFile];
-    }
+- (void)registerSuccessBlock:(GVRemoteConfigCompletionSuccessBlock)successBlock failureBlock:(GVRemoteConfigCompletionFailureBlock)failureBlock {
+    self.successBlock = successBlock;
+    self.failureBlock = failureBlock;
 }
 
 #pragma mark - Private methods
@@ -74,12 +68,6 @@ NSString *const GVRemoteConfigStatusChangedNotification = @"is.gangverk.RemoteCo
     if (parsedData != nil) {
         [self applyMapping:parsedData];
         [self statusChanged:kGVRemoteConfigStatusUsingLocalConfig];
-
-        // If there is a block waiting, then execute it.
-        if (self.successBlock) {
-            self.successBlock();
-            self.successBlock = nil;
-        }
     }
 }
 
@@ -212,7 +200,6 @@ NSString *const GVRemoteConfigStatusChangedNotification = @"is.gangverk.RemoteCo
         // If there is a block waiting, then execute it.
         if (self.successBlock) {
             self.successBlock();
-            self.successBlock = nil;
         }
     } else {
         NSLog(@"No parsedData found");

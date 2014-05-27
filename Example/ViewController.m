@@ -39,13 +39,6 @@ NSString *const GVRemoteConfigStatusStrings[] = {
     self.integerLabel.text = [NSString stringWithFormat:@"%@", [Config sharedInstance].exampleIntegerValue];
     self.stringLabel.text = [Config sharedInstance].exampleStringValue;
     self.nonExistingLabel.text = [Config sharedInstance].nonExistingStringValue;
-
-    [[Config sharedInstance] executeBlockWhenDownloaded:^{
-        // This is always a downloaded (or saved) version, not the locally defined default value
-        NSLog(@"This should never be the local default (\"Default local value\"): %@", [Config sharedInstance].exampleStringValue);
-    } onFailure:^(NSError *error) {
-        NSLog(@"Download failure: %@", [error localizedDescription]);
-    }];
 }
 
 - (void)viewDidUnload {

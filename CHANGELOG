@@ -1,3 +1,9 @@
+1.6.0 - May 27, 2014
+- Warning: backwards incompatible changes!
+- Removed the executeBlockWhenDownloaded:onFailure: method, it was confusing to use and didn't solve the issue it needed to solve.
+- Added registerSuccessBlock:failureBlock: method
+- Please see example AppDelegate.m for the correct way of using this
+
 1.5.0 - February 26, 2014
 - Completely removed the AnyJSON dependancy, simply use NSJSONSerialization (iOS 5+)
 
